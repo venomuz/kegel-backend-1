@@ -1,0 +1,17 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18.15-alpine as builder
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the current directory contents to the container
+COPY . .
+
+# Build the React app for production
+RUN npm run build
