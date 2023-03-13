@@ -45,4 +45,4 @@ jobs:
             git pull --force
             docker compose down
             docker compose pull
-            docker-compose up -d --force-recreate nginx
+            docker compose up -d --force-recreate nginx
