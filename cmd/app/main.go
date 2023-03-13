@@ -71,7 +71,7 @@ func main() {
 	handlers := rest.NewHandler(services, rdbRepos, log, cfg)
 
 	srv := handlers.Init()
-
+	fmt.Println("hello")
 	err = srv.Run(":" + cfg.HTTPPort)
 	if err != nil {
 		log.Error("rest api router running error", logger.Error(err))
