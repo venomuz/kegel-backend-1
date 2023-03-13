@@ -41,7 +41,7 @@ jobs:
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} $(echo $REGISTRY)
 
             # Run a new container from a new image
-            cd /root/go/src/github.com/venomuz/kegel-backend
+            cd /root/kegel-backend
             docker compose down
             docker compose pull
             docker compose up -d
