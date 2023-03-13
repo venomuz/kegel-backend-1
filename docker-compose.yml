@@ -58,15 +58,13 @@ services:
 
   front-admin:
     build:
-      context: front-admin
-      dockerfile: /root/front-admin/Dockerfile
+      context: /root/front-admin/.
     volumes:
       - front-admin:/app/build
 
   front-site:
     build:
-      context: front-site
-      dockerfile: /root/front-site/Dockerfile
+      context: /root/front-site/.
     volumes:
       - front-site:/app/build
 
