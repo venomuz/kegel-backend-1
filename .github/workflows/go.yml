@@ -42,6 +42,7 @@ jobs:
 
             # Run a new container from a new image
             cd /root/kegel-backend
+            git pull --force
             docker compose down
             docker compose pull
-            docker compose up -d
+            docker-compose up -d --force-recreate nginx
