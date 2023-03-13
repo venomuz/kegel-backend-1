@@ -5,7 +5,7 @@ FROM node:18.15-alpine as builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY /root/front-site .
+COPY /root/front-site/. .
 
 # Install dependencies
 RUN npm install

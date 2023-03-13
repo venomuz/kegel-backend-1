@@ -5,7 +5,7 @@ FROM node:18.15-alpine as builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY /root/front-admin .
+COPY /root/front-admin/. .
 
 # Install dependencies
 RUN npm install
