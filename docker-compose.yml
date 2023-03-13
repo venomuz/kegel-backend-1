@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  app:
+    image: venomuz/kegel-backend:latest
+    container_name: kegel-backend
+    restart: always
+    depends_on:
+      - mariadb-db
+    ports:
+      - "9090:9090"
+    volumes:
+      - /root/public:/root/public
+    env_file:
+      - .env
+
+  mariadb-db:
+    container_name: mariadb
+    image: mariadb:10.5.18
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    env_file:
+      - .env
+
+  redis:
+    container_name: "redis"
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf --requirepass 112233
+    depends_on:
+      - mariadb-db
+    ports:
+      - "6379:6379"
+    volumes:
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+    env_file:
+      - .env
+
+
+volumes:
+  mariadb_data:
+
+

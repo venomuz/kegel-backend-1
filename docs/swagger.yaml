@@ -1,0 +1,2222 @@
+definitions:
+  models.AccountSendVerificationInput:
+    properties:
+      phoneNumber:
+        example: "998901234323"
+        type: string
+    required:
+    - phoneNumber
+    type: object
+  models.Accounts:
+    properties:
+      authKey:
+        type: string
+        x-order: "11"
+      birthday:
+        type: string
+        x-order: "6"
+      blocked:
+        type: integer
+        x-order: "12"
+      chatId:
+        type: integer
+        x-order: "3"
+      createdAt:
+        type: string
+        x-order: "13"
+      deletedAt:
+        type: string
+        x-order: "15"
+      firstName:
+        type: string
+        x-order: "4"
+      id:
+        type: integer
+        x-order: "1"
+      language:
+        type: string
+        x-order: "10"
+      lastName:
+        type: string
+        x-order: "5"
+      lastVisit:
+        type: string
+        x-order: "9"
+      password:
+        type: string
+        x-order: "8"
+      phoneNumber:
+        type: string
+        x-order: "7"
+      regionId:
+        type: integer
+        x-order: "2"
+      system:
+        type: string
+        x-order: "3"
+      updatedAt:
+        type: string
+        x-order: "14"
+    type: object
+  models.CreateOrderProductsInput:
+    properties:
+      amount:
+        type: number
+        x-order: "2"
+      productId:
+        type: string
+        x-order: "1"
+    required:
+    - amount
+    - productId
+    type: object
+  models.CreateOrderWithProductsInput:
+    properties:
+      accountID:
+        type: integer
+        x-order: "2"
+      apartment:
+        type: string
+        x-order: "11"
+      chatID:
+        type: integer
+        x-order: "3"
+      city:
+        type: string
+        x-order: "7"
+      comment:
+        type: string
+        x-order: "12"
+      customerName:
+        type: string
+        x-order: "5"
+      customerPhone:
+        type: string
+        x-order: "6"
+      deliveryPrice:
+        type: number
+        x-order: "14"
+      district:
+        type: string
+        x-order: "8"
+      fullSum:
+        type: number
+        x-order: "15"
+      home:
+        type: string
+        x-order: "10"
+      orderProducts:
+        items:
+          $ref: '#/definitions/models.CreateOrderProductsInput'
+        type: array
+        x-order: "17"
+      paymentType:
+        type: string
+        x-order: "13"
+      regionID:
+        type: integer
+        x-order: "4"
+      status:
+        type: integer
+        x-order: "16"
+      street:
+        type: string
+        x-order: "9"
+      system:
+        type: string
+        x-order: "1"
+    type: object
+  models.CreateProductInput:
+    properties:
+      descriptionEn:
+        type: string
+        x-order: "7"
+      descriptionRu:
+        type: string
+        x-order: "6"
+      descriptionUz:
+        type: string
+        x-order: "5"
+      enabled:
+        type: boolean
+        x-order: "15"
+      groupId:
+        type: string
+        x-order: "9"
+      nameEn:
+        type: string
+        x-order: "4"
+      nameRu:
+        type: string
+        x-order: "3"
+      nameUz:
+        type: string
+        x-order: "2"
+      position:
+        type: integer
+        x-order: "8"
+      price:
+        type: number
+        x-order: "10"
+      seoDescription:
+        type: string
+        x-order: "11"
+      seoKeywords:
+        type: string
+        x-order: "12"
+      seoText:
+        type: string
+        x-order: "13"
+      seoTitle:
+        type: string
+        x-order: "14"
+      url:
+        type: string
+        x-order: "1"
+    required:
+    - descriptionUz
+    - groupId
+    - nameUz
+    - price
+    type: object
+  models.CreateProductRateInput:
+    properties:
+      description:
+        type: string
+        x-order: "6"
+      noname:
+        description: AccountFirstname string `json:"-" extensions:"x-order=4"`
+        type: boolean
+        x-order: "4"
+      orderId:
+        type: integer
+        x-order: "1"
+      productId:
+        type: string
+        x-order: "2"
+      rate:
+        type: integer
+        x-order: "5"
+    type: object
+  models.CreateSettingInput:
+    properties:
+      created_at:
+        type: string
+        x-order: "4"
+      deleted_at:
+        type: string
+        x-order: "6"
+      key:
+        type: string
+        x-order: "2"
+      title:
+        type: string
+        x-order: "1"
+      updated_at:
+        type: string
+        x-order: "5"
+      value:
+        type: string
+        x-order: "3"
+    type: object
+  models.Groups:
+    properties:
+      createdAt:
+        type: string
+        x-order: "16"
+      deletedAt:
+        type: string
+        x-order: "18"
+      descriptionEn:
+        type: string
+        x-order: "7"
+      descriptionRu:
+        type: string
+        x-order: "6"
+      descriptionUz:
+        type: string
+        x-order: "5"
+      enabled:
+        type: boolean
+        x-order: "15"
+      id:
+        type: string
+        x-order: "1"
+      image:
+        type: string
+        x-order: "10"
+      nameEn:
+        type: string
+        x-order: "4"
+      nameRu:
+        type: string
+        x-order: "3"
+      nameUz:
+        type: string
+        x-order: "3"
+      parentGroup:
+        type: string
+        x-order: "9"
+      position:
+        type: integer
+        x-order: "8"
+      seoDescription:
+        type: string
+        x-order: "11"
+      seoKeywords:
+        type: string
+        x-order: "12"
+      seoText:
+        type: string
+        x-order: "13"
+      seoTitle:
+        type: string
+        x-order: "14"
+      updatedAt:
+        type: string
+        x-order: "17"
+      url:
+        type: string
+        x-order: "2"
+    type: object
+  models.GroupsWithChild:
+    properties:
+      child:
+        items:
+          $ref: '#/definitions/models.Groups'
+        type: array
+        x-order: "2"
+      createdAt:
+        type: string
+        x-order: "16"
+      deletedAt:
+        type: string
+        x-order: "18"
+      descriptionEn:
+        type: string
+        x-order: "7"
+      descriptionRu:
+        type: string
+        x-order: "6"
+      descriptionUz:
+        type: string
+        x-order: "5"
+      enabled:
+        type: boolean
+        x-order: "15"
+      id:
+        type: string
+        x-order: "1"
+      image:
+        type: string
+        x-order: "10"
+      nameEn:
+        type: string
+        x-order: "4"
+      nameRu:
+        type: string
+        x-order: "3"
+      nameUz:
+        type: string
+        x-order: "3"
+      parentGroup:
+        type: string
+        x-order: "9"
+      position:
+        type: integer
+        x-order: "8"
+      seoDescription:
+        type: string
+        x-order: "11"
+      seoKeywords:
+        type: string
+        x-order: "12"
+      seoText:
+        type: string
+        x-order: "13"
+      seoTitle:
+        type: string
+        x-order: "14"
+      updatedAt:
+        type: string
+        x-order: "17"
+      url:
+        type: string
+        x-order: "2"
+    type: object
+  models.Orders:
+    properties:
+      accountID:
+        type: integer
+        x-order: "3"
+      apartment:
+        type: string
+        x-order: "11"
+      chatID:
+        type: integer
+        x-order: "3"
+      city:
+        type: string
+        x-order: "7"
+      comment:
+        type: string
+        x-order: "12"
+      createdAt:
+        type: string
+        x-order: "17"
+      customerName:
+        type: string
+        x-order: "5"
+      customerPhone:
+        type: string
+        x-order: "6"
+      deletedAt:
+        type: string
+        x-order: "19"
+      deliveryPrice:
+        type: number
+        x-order: "14"
+      district:
+        type: string
+        x-order: "8"
+      fullSum:
+        type: number
+        x-order: "15"
+      home:
+        type: string
+        x-order: "10"
+      id:
+        type: integer
+        x-order: "1"
+      paymentType:
+        type: string
+        x-order: "13"
+      regionID:
+        type: integer
+        x-order: "4"
+      status:
+        type: integer
+        x-order: "16"
+      street:
+        type: string
+        x-order: "9"
+      system:
+        type: string
+        x-order: "2"
+      updatedAt:
+        type: string
+        x-order: "18"
+    type: object
+  models.ProductImages:
+    properties:
+      createdAt:
+        type: string
+        x-order: "5"
+      deletedAt:
+        type: string
+        x-order: "7"
+      id:
+        type: integer
+        x-order: "1"
+      image:
+        type: string
+        x-order: "3"
+      position:
+        type: integer
+        x-order: "4"
+      productId:
+        type: string
+        x-order: "2"
+      updatedAt:
+        type: string
+        x-order: "6"
+    type: object
+  models.ProductRates:
+    properties:
+      accountFirstname:
+        type: string
+        x-order: "5"
+      accountId:
+        type: integer
+        x-order: "4"
+      createdAt:
+        type: string
+        x-order: "8"
+      description:
+        type: string
+        x-order: "7"
+      id:
+        type: integer
+        x-order: "1"
+      orderId:
+        type: integer
+        x-order: "2"
+      productId:
+        type: string
+        x-order: "3"
+      rate:
+        type: integer
+        x-order: "6"
+    type: object
+  models.ProductWithImages:
+    properties:
+      createdAt:
+        type: string
+        x-order: "17"
+      deletedAt:
+        type: string
+        x-order: "19"
+      descriptionEn:
+        type: string
+        x-order: "8"
+      descriptionRu:
+        type: string
+        x-order: "7"
+      descriptionUz:
+        type: string
+        x-order: "6"
+      enabled:
+        type: boolean
+        x-order: "16"
+      groupId:
+        type: string
+        x-order: "10"
+      id:
+        type: string
+        x-order: "1"
+      images:
+        items:
+          $ref: '#/definitions/models.ProductImages'
+        type: array
+        x-order: "21"
+      nameEn:
+        type: string
+        x-order: "5"
+      nameRu:
+        type: string
+        x-order: "4"
+      nameUz:
+        type: string
+        x-order: "3"
+      position:
+        type: integer
+        x-order: "9"
+      price:
+        type: number
+        x-order: "11"
+      rate:
+        type: integer
+      seoDescription:
+        type: string
+        x-order: "12"
+      seoKeywords:
+        type: string
+        x-order: "13"
+      seoText:
+        type: string
+        x-order: "14"
+      seoTitle:
+        type: string
+        x-order: "15"
+      updatedAt:
+        type: string
+        x-order: "18"
+      url:
+        type: string
+        x-order: "2"
+    type: object
+  models.Products:
+    properties:
+      createdAt:
+        type: string
+        x-order: "17"
+      deletedAt:
+        type: string
+        x-order: "19"
+      descriptionEn:
+        type: string
+        x-order: "8"
+      descriptionRu:
+        type: string
+        x-order: "7"
+      descriptionUz:
+        type: string
+        x-order: "6"
+      enabled:
+        type: boolean
+        x-order: "16"
+      groupId:
+        type: string
+        x-order: "10"
+      id:
+        type: string
+        x-order: "1"
+      nameEn:
+        type: string
+        x-order: "5"
+      nameRu:
+        type: string
+        x-order: "4"
+      nameUz:
+        type: string
+        x-order: "3"
+      position:
+        type: integer
+        x-order: "9"
+      price:
+        type: number
+        x-order: "11"
+      rate:
+        type: integer
+      seoDescription:
+        type: string
+        x-order: "12"
+      seoKeywords:
+        type: string
+        x-order: "13"
+      seoText:
+        type: string
+        x-order: "14"
+      seoTitle:
+        type: string
+        x-order: "15"
+      updatedAt:
+        type: string
+        x-order: "18"
+      url:
+        type: string
+        x-order: "2"
+    type: object
+  models.ProductsWithImagesAndPagination:
+    properties:
+      count:
+        type: integer
+        x-order: "5"
+      page:
+        type: integer
+        x-order: "2"
+      pageCount:
+        type: integer
+        x-order: "4"
+      pageSize:
+        type: integer
+        x-order: "3"
+      products:
+        items:
+          $ref: '#/definitions/models.ProductWithImages'
+        type: array
+        x-order: "1"
+    type: object
+  models.RegistrationAccountInput:
+    properties:
+      birthday:
+        example: "2006-11-22"
+        type: string
+        x-order: "5"
+      chatId:
+        type: integer
+        x-order: "2"
+      firstName:
+        minLength: 2
+        type: string
+        x-order: "3"
+      language:
+        example: uz
+        maxLength: 2
+        type: string
+        x-order: "8"
+      lastName:
+        minLength: 2
+        type: string
+        x-order: "4"
+      password:
+        type: string
+        x-order: "7"
+      phoneNumber:
+        example: "998901234323"
+        type: string
+        x-order: "6"
+      regionId:
+        type: integer
+        x-order: "1"
+      system:
+        type: string
+        x-order: "3"
+      verificationCode:
+        type: string
+        x-order: "9"
+    required:
+    - firstName
+    - lastName
+    - password
+    - phoneNumber
+    type: object
+  models.Settings:
+    properties:
+      created_at:
+        example: "2022-01-15T11:27:04+05:00"
+        type: string
+        x-order: "5"
+      deleted_at:
+        example: "2022-01-15T11:27:04+05:00"
+        type: string
+        x-order: "7"
+      id:
+        type: integer
+        x-order: "1"
+      key:
+        type: string
+        x-order: "3"
+      title:
+        type: string
+        x-order: "2"
+      updated_at:
+        example: "2022-01-15T11:27:04+05:00"
+        type: string
+        x-order: "6"
+      value:
+        type: string
+        x-order: "4"
+    type: object
+  models.UpdateAccountInput:
+    properties:
+      birthday:
+        example: "2006-11-22"
+        type: string
+        x-order: "6"
+      blocked:
+        type: integer
+        x-order: "9"
+      chatId:
+        type: integer
+        x-order: "3"
+      firstName:
+        minLength: 2
+        type: string
+        x-order: "4"
+      language:
+        example: uz
+        maxLength: 2
+        type: string
+        x-order: "8"
+      lastName:
+        type: string
+        x-order: "5"
+      password:
+        type: string
+        x-order: "7"
+      regionId:
+        type: integer
+        x-order: "2"
+      system:
+        type: string
+        x-order: "3"
+    required:
+    - firstName
+    type: object
+  models.UpdateOrderInput:
+    properties:
+      accountID:
+        type: integer
+        x-order: "2"
+      apartment:
+        type: string
+        x-order: "11"
+      chatID:
+        type: integer
+        x-order: "3"
+      city:
+        type: string
+        x-order: "7"
+      comment:
+        type: string
+        x-order: "12"
+      customerName:
+        type: string
+        x-order: "5"
+      customerPhone:
+        type: string
+        x-order: "6"
+      deliveryPrice:
+        type: number
+        x-order: "14"
+      district:
+        type: string
+        x-order: "8"
+      fullSum:
+        type: number
+        x-order: "15"
+      home:
+        type: string
+        x-order: "10"
+      paymentType:
+        type: string
+        x-order: "13"
+      regionID:
+        type: integer
+        x-order: "4"
+      status:
+        type: integer
+        x-order: "16"
+      street:
+        type: string
+        x-order: "9"
+      system:
+        type: string
+        x-order: "1"
+    type: object
+  models.UpdateProductInput:
+    properties:
+      descriptionEn:
+        type: string
+        x-order: "8"
+      descriptionRu:
+        type: string
+        x-order: "7"
+      descriptionUz:
+        type: string
+        x-order: "6"
+      enabled:
+        type: boolean
+        x-order: "16"
+      groupId:
+        type: string
+        x-order: "10"
+      nameEn:
+        type: string
+        x-order: "5"
+      nameRu:
+        type: string
+        x-order: "4"
+      nameUz:
+        type: string
+        x-order: "3"
+      position:
+        type: integer
+        x-order: "9"
+      price:
+        type: number
+        x-order: "11"
+      seoDescription:
+        type: string
+        x-order: "12"
+      seoKeywords:
+        type: string
+        x-order: "13"
+      seoText:
+        type: string
+        x-order: "14"
+      seoTitle:
+        type: string
+        x-order: "15"
+      url:
+        type: string
+        x-order: "2"
+    required:
+    - descriptionUz
+    - groupId
+    - nameUz
+    - price
+    type: object
+  models.UpdateSettingInput:
+    properties:
+      created_at:
+        type: string
+        x-order: "5"
+      deleted_at:
+        type: string
+        x-order: "7"
+      id:
+        type: integer
+        x-order: "1"
+      key:
+        type: string
+        x-order: "3"
+      title:
+        type: string
+        x-order: "2"
+      updated_at:
+        type: string
+        x-order: "6"
+      value:
+        type: string
+        x-order: "4"
+    type: object
+  models.Users:
+    properties:
+      createdAt:
+        type: string
+        x-order: "6"
+      deletedAt:
+        type: string
+        x-order: "8"
+      email:
+        type: string
+        x-order: "4"
+      id:
+        type: integer
+        x-order: "1"
+      lastVisit:
+        type: string
+        x-order: "5"
+      updatedAt:
+        type: string
+        x-order: "7"
+      username:
+        type: string
+        x-order: "2"
+    type: object
+  v1.Response:
+    properties:
+      message:
+        type: string
+    type: object
+info:
+  contact:
+    email: venom.uzz@mail.ru
+    name: API Support
+    url: https://t.me/xalmatoff
+  description: This is a sample server CRM server.
+  title: Golang CRM Swagger Documentation
+  version: "1.0"
+paths:
+  /v1/accounts:
+    get:
+      consumes:
+      - application/json
+      description: This api for get Accounts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Accounts'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get all Accounts
+      tags:
+      - Accounts
+  /v1/accounts-registration:
+    post:
+      consumes:
+      - application/json
+      description: this API to registration account.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistrationAccountInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Accounts'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Registration an account.
+      tags:
+      - Accounts
+  /v1/accounts-verification:
+    post:
+      consumes:
+      - application/json
+      description: this API to send account's verification code to phone number.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.AccountSendVerificationInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Send verification code.
+      tags:
+      - Accounts
+  /v1/accounts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: this api is for get Account by id
+      parameters:
+      - description: ID for get Account
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Accounts'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Gets an Account by id
+      tags:
+      - Accounts
+    put:
+      consumes:
+      - application/json
+      description: This api is for create Account
+      parameters:
+      - description: id for update Account
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateAccountInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Accounts'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update an Account
+      tags:
+      - Accounts
+  /v1/accounts/login:
+    post:
+      consumes:
+      - multipart/form-data
+      description: This API to login account.
+      parameters:
+      - example: "998901234323"
+        in: formData
+        name: phoneNumber
+        required: true
+        type: string
+        x-order: "1"
+      - in: formData
+        name: password
+        type: string
+        x-order: "2"
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+          schema:
+            $ref: '#/definitions/models.Accounts'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Login account
+      tags:
+      - Accounts
+  /v1/accounts/logout:
+    post:
+      consumes:
+      - multipart/form-data
+      description: This API to logout accounts.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Logout account
+      tags:
+      - Accounts
+  /v1/groups:
+    post:
+      consumes:
+      - application/json
+      description: This API to create a group.
+      parameters:
+      - in: formData
+        name: url
+        type: string
+        x-order: "1"
+      - in: formData
+        name: seoDescription
+        type: string
+        x-order: "10"
+      - in: formData
+        name: seoKeywords
+        type: string
+        x-order: "11"
+      - in: formData
+        name: seoText
+        type: string
+        x-order: "12"
+      - in: formData
+        name: seoTitle
+        type: string
+        x-order: "13"
+      - in: formData
+        name: enabled
+        type: boolean
+        x-order: "14"
+      - in: formData
+        name: nameUz
+        required: true
+        type: string
+        x-order: "2"
+      - in: formData
+        name: nameEn
+        type: string
+        x-order: "3"
+      - in: formData
+        name: nameRu
+        type: string
+        x-order: "3"
+      - in: formData
+        name: descriptionUz
+        required: true
+        type: string
+        x-order: "4"
+      - in: formData
+        name: descriptionRu
+        type: string
+        x-order: "5"
+      - in: formData
+        name: descriptionEn
+        type: string
+        x-order: "6"
+      - in: formData
+        name: position
+        type: integer
+        x-order: "7"
+      - in: formData
+        name: parentGroup
+        type: string
+        x-order: "8"
+      - description: fileImage
+        in: formData
+        name: fileImage
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Groups'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create a group.
+      tags:
+      - Groups
+  /v1/groups-by-filter:
+    get:
+      consumes:
+      - application/json
+      description: This API to get groups by filter.
+      parameters:
+      - in: query
+        name: all
+        type: boolean
+        x-order: "1"
+      - in: query
+        name: parentId
+        type: string
+        x-order: "2"
+      - in: query
+        name: nameUz
+        type: string
+        x-order: "3"
+      - in: query
+        name: url
+        type: string
+        x-order: "3"
+      - in: query
+        name: enabled
+        type: boolean
+        x-order: "4"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.GroupsWithChild'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get groups by filter.
+      tags:
+      - Groups
+  /v1/groups-url/{url}:
+    get:
+      consumes:
+      - application/json
+      description: This API to get group by url.
+      parameters:
+      - description: url for get Group
+        format: id
+        in: path
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Groups'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get group by url.
+      tags:
+      - Groups
+  /v1/groups/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete a group.
+      parameters:
+      - description: id for delete Group
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete a group.
+      tags:
+      - Groups
+    get:
+      consumes:
+      - application/json
+      description: This API to get group by id.
+      parameters:
+      - description: id for get Group
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Groups'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get group by id.
+      tags:
+      - Groups
+    put:
+      consumes:
+      - application/json
+      description: This API to update a group.
+      parameters:
+      - description: id for update Group
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      - in: formData
+        name: seoDescription
+        type: string
+        x-order: "11"
+      - in: formData
+        name: seoKeywords
+        type: string
+        x-order: "12"
+      - in: formData
+        name: seoText
+        type: string
+        x-order: "13"
+      - in: formData
+        name: seoTitle
+        type: string
+        x-order: "14"
+      - in: formData
+        name: enabled
+        type: boolean
+        x-order: "15"
+      - in: formData
+        name: url
+        type: string
+        x-order: "2"
+      - in: formData
+        name: nameRu
+        type: string
+        x-order: "3"
+      - in: formData
+        name: nameUz
+        required: true
+        type: string
+        x-order: "3"
+      - in: formData
+        name: nameEn
+        type: string
+        x-order: "4"
+      - in: formData
+        name: descriptionUz
+        required: true
+        type: string
+        x-order: "5"
+      - in: formData
+        name: descriptionRu
+        type: string
+        x-order: "6"
+      - in: formData
+        name: descriptionEn
+        type: string
+        x-order: "7"
+      - in: formData
+        name: position
+        type: integer
+        x-order: "8"
+      - in: formData
+        name: parentGroup
+        type: string
+        x-order: "9"
+      - description: file_image
+        in: formData
+        name: file_image
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Groups'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update a group.
+      tags:
+      - Groups
+  /v1/orders:
+    post:
+      consumes:
+      - application/json
+      description: This API to create an order.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateOrderWithProductsInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Orders'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create an order.
+      tags:
+      - Orders
+  /v1/orders-by-filter:
+    get:
+      consumes:
+      - application/json
+      description: This API to get orders by filter.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Orders'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get orders by filter.
+      tags:
+      - Orders
+  /v1/orders/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete an order.
+      parameters:
+      - description: id for delete Order
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete an order.
+      tags:
+      - Orders
+    get:
+      consumes:
+      - application/json
+      description: This API to get order by id.
+      parameters:
+      - description: id for get Order
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Orders'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get order by id.
+      tags:
+      - Orders
+    put:
+      consumes:
+      - application/json
+      description: This API to update an order.
+      parameters:
+      - description: id for update Order
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateOrderInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Orders'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update an order.
+      tags:
+      - Orders
+  /v1/product-images:
+    post:
+      consumes:
+      - application/json
+      description: This API to create a productImage.
+      parameters:
+      - in: formData
+        name: productId
+        required: true
+        type: string
+        x-order: "1"
+      - in: formData
+        name: position
+        type: integer
+        x-order: "2"
+      - description: fileImage
+        in: formData
+        name: fileImage
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.ProductImages'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create a productImage.
+      tags:
+      - ProductImages
+  /v1/product-images/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete a productImage.
+      parameters:
+      - description: id for delete ProductImage
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete a productImage.
+      tags:
+      - ProductImages
+    get:
+      consumes:
+      - application/json
+      description: This API to get productImage by id.
+      parameters:
+      - description: id for get ProductImage
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductImages'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get productImage by id.
+      tags:
+      - ProductImages
+    put:
+      consumes:
+      - application/json
+      description: This API to update a productImage.
+      parameters:
+      - description: id for update ProductImage
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - in: formData
+        name: productId
+        required: true
+        type: string
+        x-order: "1"
+      - in: formData
+        name: position
+        type: integer
+        x-order: "2"
+      - description: file_image
+        in: formData
+        name: file_image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductImages'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update a productImage.
+      tags:
+      - ProductImages
+  /v1/product-rates:
+    post:
+      consumes:
+      - application/json
+      description: This API to create a productRate.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateProductRateInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.ProductRates'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: create a productRate
+      tags:
+      - ProductRates
+  /v1/products:
+    post:
+      consumes:
+      - application/json
+      description: This API to create a product.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateProductInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Products'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create a product.
+      tags:
+      - Products
+  /v1/products-by-filter:
+    get:
+      consumes:
+      - application/json
+      description: This API to get products with images by filter.
+      parameters:
+      - in: query
+        name: nameUz
+        type: string
+        x-order: "1"
+      - in: query
+        name: all
+        type: boolean
+        x-order: "10"
+      - in: query
+        name: page
+        type: integer
+        x-order: "11"
+      - in: query
+        name: pageSize
+        type: integer
+        x-order: "12"
+      - in: query
+        name: url
+        type: string
+        x-order: "2"
+      - in: query
+        name: price
+        type: number
+        x-order: "3"
+      - in: query
+        name: descriptionUz
+        type: string
+        x-order: "4"
+      - in: query
+        name: groupUrl
+        type: string
+        x-order: "6"
+      - in: query
+        name: enabled
+        type: boolean
+        x-order: "7"
+      - enum:
+        - name_uz
+        - price
+        - created_at
+        in: query
+        name: sortBy
+        type: string
+        x-order: "8"
+      - in: query
+        name: desc
+        type: boolean
+        x-order: "9"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductsWithImagesAndPagination'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get products with images by filter.
+      tags:
+      - Products
+  /v1/products-url/{url}:
+    get:
+      consumes:
+      - application/json
+      description: This API to get product by url.
+      parameters:
+      - description: url for get Product
+        format: id
+        in: path
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductWithImages'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get product by url.
+      tags:
+      - Products
+  /v1/products/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete a product.
+      parameters:
+      - description: id for delete Product
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete a product.
+      tags:
+      - Products
+    get:
+      consumes:
+      - application/json
+      description: This API to get product with images by id.
+      parameters:
+      - description: id for get Product
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductWithImages'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get product with images by id.
+      tags:
+      - Products
+    put:
+      consumes:
+      - application/json
+      description: This API to update a product.
+      parameters:
+      - description: id for update Product
+        format: id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProductInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Products'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update a product.
+      tags:
+      - Products
+  /v1/settings:
+    get:
+      consumes:
+      - application/json
+      description: This api for get Settings
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Settings'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get all Settings
+      tags:
+      - Settings
+    post:
+      consumes:
+      - application/json
+      description: This API to create a setting.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateSettingInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Settings'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create a setting.
+      tags:
+      - Settings
+  /v1/settings-url/{url}:
+    get:
+      consumes:
+      - application/json
+      description: This API to get setting by url.
+      parameters:
+      - description: url for get Setting
+        format: id
+        in: path
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Settings'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get setting by url.
+      tags:
+      - Settings
+  /v1/settings/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete a setting.
+      parameters:
+      - description: id for delete Setting
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete a setting.
+      tags:
+      - Settings
+    get:
+      consumes:
+      - application/json
+      description: This API to get setting by id.
+      parameters:
+      - description: id for get Setting
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Settings'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get setting by id.
+      tags:
+      - Settings
+    put:
+      consumes:
+      - application/json
+      description: This API to update a setting.
+      parameters:
+      - description: id for update Setting
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateSettingInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Settings'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update a setting.
+      tags:
+      - Settings
+  /v1/users/login:
+    post:
+      consumes:
+      - multipart/form-data
+      description: This API to login user.
+      parameters:
+      - in: formData
+        name: username
+        required: true
+        type: string
+        x-order: "1"
+      - in: formData
+        name: password
+        required: true
+        type: string
+        x-order: "2"
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+          schema:
+            $ref: '#/definitions/models.Users'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Login user
+      tags:
+      - Users
+  /v1/users/logout:
+    post:
+      consumes:
+      - multipart/form-data
+      description: This API to logout users.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Logout user
+      tags:
+      - Users
+swagger: "2.0"

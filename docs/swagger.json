@@ -1,0 +1,3209 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server CRM server.",
+        "title": "Golang CRM Swagger Documentation",
+        "contact": {
+            "name": "API Support",
+            "url": "https://t.me/xalmatoff",
+            "email": "venom.uzz@mail.ru"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/v1/accounts": {
+            "get": {
+                "description": "This api for get Accounts",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Get all Accounts",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Accounts"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/accounts-registration": {
+            "post": {
+                "description": "this API to registration account.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Registration an account.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistrationAccountInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/accounts-verification": {
+            "post": {
+                "description": "this API to send account's verification code to phone number.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Send verification code.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AccountSendVerificationInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/accounts/login": {
+            "post": {
+                "description": "This API to login account.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Login account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "998901234323",
+                        "x-order": "1",
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "password",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/accounts/logout": {
+            "post": {
+                "description": "This API to logout accounts.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Logout account",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/accounts/{id}": {
+            "get": {
+                "description": "this api is for get Account by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Gets an Account by id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "ID for get Account",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This api is for create Account",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Accounts"
+                ],
+                "summary": "Update an Account",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for update Account",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateAccountInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/groups": {
+            "post": {
+                "description": "This API to create a group.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Create a group.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-order": "1",
+                        "name": "url",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "10",
+                        "name": "seoDescription",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "11",
+                        "name": "seoKeywords",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "12",
+                        "name": "seoText",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "13",
+                        "name": "seoTitle",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "14",
+                        "name": "enabled",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "nameUz",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "nameEn",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "nameRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "4",
+                        "name": "descriptionUz",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "5",
+                        "name": "descriptionRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "6",
+                        "name": "descriptionEn",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "7",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "8",
+                        "name": "parentGroup",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "fileImage",
+                        "name": "fileImage",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Groups"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/groups-by-filter": {
+            "get": {
+                "description": "This API to get groups by filter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get groups by filter.",
+                "parameters": [
+                    {
+                        "type": "boolean",
+                        "x-order": "1",
+                        "name": "all",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "parentId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "nameUz",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "url",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "4",
+                        "name": "enabled",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.GroupsWithChild"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/groups-url/{url}": {
+            "get": {
+                "description": "This API to get group by url.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get group by url.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "url for get Group",
+                        "name": "url",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Groups"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/groups/{id}": {
+            "get": {
+                "description": "This API to get group by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get group by id.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for get Group",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Groups"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update a group.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Update a group.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for update Group",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "11",
+                        "name": "seoDescription",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "12",
+                        "name": "seoKeywords",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "13",
+                        "name": "seoText",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "14",
+                        "name": "seoTitle",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "15",
+                        "name": "enabled",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "url",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "nameRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "3",
+                        "name": "nameUz",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "4",
+                        "name": "nameEn",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "5",
+                        "name": "descriptionUz",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "6",
+                        "name": "descriptionRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "7",
+                        "name": "descriptionEn",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "8",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "9",
+                        "name": "parentGroup",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "file_image",
+                        "name": "file_image",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Groups"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete a group.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Delete a group.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for delete Group",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/orders": {
+            "post": {
+                "description": "This API to create an order.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Create an order.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateOrderWithProductsInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Orders"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/orders-by-filter": {
+            "get": {
+                "description": "This API to get orders by filter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get orders by filter.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Orders"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/orders/{id}": {
+            "get": {
+                "description": "This API to get order by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get order by id.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for get Order",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Orders"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update an order.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Update an order.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for update Order",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateOrderInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Orders"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete an order.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Delete an order.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for delete Order",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/product-images": {
+            "post": {
+                "description": "This API to create a productImage.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ProductImages"
+                ],
+                "summary": "Create a productImage.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-order": "1",
+                        "name": "productId",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "2",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "fileImage",
+                        "name": "fileImage",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductImages"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/product-images/{id}": {
+            "get": {
+                "description": "This API to get productImage by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ProductImages"
+                ],
+                "summary": "Get productImage by id.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for get ProductImage",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductImages"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update a productImage.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ProductImages"
+                ],
+                "summary": "Update a productImage.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for update ProductImage",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "1",
+                        "name": "productId",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "2",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "file_image",
+                        "name": "file_image",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductImages"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete a productImage.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ProductImages"
+                ],
+                "summary": "Delete a productImage.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for delete ProductImage",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/product-rates": {
+            "post": {
+                "description": "This API to create a productRate.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ProductRates"
+                ],
+                "summary": "create a productRate",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateProductRateInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductRates"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/products": {
+            "post": {
+                "description": "This API to create a product.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Create a product.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateProductInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/products-by-filter": {
+            "get": {
+                "description": "This API to get products with images by filter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get products with images by filter.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-order": "1",
+                        "name": "nameUz",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "10",
+                        "name": "all",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "11",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "x-order": "12",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "url",
+                        "in": "query"
+                    },
+                    {
+                        "type": "number",
+                        "x-order": "3",
+                        "name": "price",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "4",
+                        "name": "descriptionUz",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "6",
+                        "name": "groupUrl",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "7",
+                        "name": "enabled",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "name_uz",
+                            "price",
+                            "created_at"
+                        ],
+                        "type": "string",
+                        "x-order": "8",
+                        "name": "sortBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "x-order": "9",
+                        "name": "desc",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductsWithImagesAndPagination"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/products-url/{url}": {
+            "get": {
+                "description": "This API to get product by url.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get product by url.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "url for get Product",
+                        "name": "url",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductWithImages"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/products/{id}": {
+            "get": {
+                "description": "This API to get product with images by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get product with images by id.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for get Product",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductWithImages"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update a product.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Update a product.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for update Product",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateProductInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete a product.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete a product.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "id for delete Product",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/settings": {
+            "get": {
+                "description": "This api for get Settings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get all Settings",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Settings"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "This API to create a setting.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Create a setting.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateSettingInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Settings"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/settings-url/{url}": {
+            "get": {
+                "description": "This API to get setting by url.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get setting by url.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "id",
+                        "description": "url for get Setting",
+                        "name": "url",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Settings"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/settings/{id}": {
+            "get": {
+                "description": "This API to get setting by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get setting by id.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for get Setting",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Settings"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update a setting.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Update a setting.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for update Setting",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateSettingInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Settings"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete a setting.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete a setting.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for delete Setting",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/login": {
+            "post": {
+                "description": "This API to login user.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login user",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "x-order": "1",
+                        "name": "username",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "x-order": "2",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/logout": {
+            "post": {
+                "description": "This API to logout users.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Logout user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.AccountSendVerificationInput": {
+            "type": "object",
+            "required": [
+                "phoneNumber"
+            ],
+            "properties": {
+                "phoneNumber": {
+                    "type": "string",
+                    "example": "998901234323"
+                }
+            }
+        },
+        "models.Accounts": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "language": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "authKey": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "blocked": {
+                    "type": "integer",
+                    "x-order": "12"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "15"
+                },
+                "regionId": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "chatId": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "system": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "firstName": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "lastName": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "birthday": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "password": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "lastVisit": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.CreateOrderProductsInput": {
+            "type": "object",
+            "required": [
+                "amount",
+                "productId"
+            ],
+            "properties": {
+                "productId": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "amount": {
+                    "type": "number",
+                    "x-order": "2"
+                }
+            }
+        },
+        "models.CreateOrderWithProductsInput": {
+            "type": "object",
+            "properties": {
+                "system": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "home": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "apartment": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "comment": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "paymentType": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "deliveryPrice": {
+                    "type": "number",
+                    "x-order": "14"
+                },
+                "fullSum": {
+                    "type": "number",
+                    "x-order": "15"
+                },
+                "status": {
+                    "type": "integer",
+                    "x-order": "16"
+                },
+                "orderProducts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.CreateOrderProductsInput"
+                    },
+                    "x-order": "17"
+                },
+                "accountID": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "chatID": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "regionID": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "customerName": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "customerPhone": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "city": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "district": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "street": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.CreateProductInput": {
+            "type": "object",
+            "required": [
+                "descriptionUz",
+                "groupId",
+                "nameUz",
+                "price"
+            ],
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "price": {
+                    "type": "number",
+                    "x-order": "10"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "15"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "8"
+                },
+                "groupId": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.CreateProductRateInput": {
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "productId": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "noname": {
+                    "description": "AccountFirstname string `json:\"-\" extensions:\"x-order=4\"`",
+                    "type": "boolean",
+                    "x-order": "4"
+                },
+                "rate": {
+                    "type": "integer",
+                    "x-order": "5"
+                },
+                "description": {
+                    "type": "string",
+                    "x-order": "6"
+                }
+            }
+        },
+        "models.CreateSettingInput": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "key": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "value": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "created_at": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "deleted_at": {
+                    "type": "string",
+                    "x-order": "6"
+                }
+            }
+        },
+        "models.Groups": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "image": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "15"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "16"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "17"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "18"
+                },
+                "url": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "8"
+                },
+                "parentGroup": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.GroupsWithChild": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "image": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "15"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "16"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "17"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "18"
+                },
+                "url": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "child": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Groups"
+                    },
+                    "x-order": "2"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "8"
+                },
+                "parentGroup": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.Orders": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "home": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "apartment": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "comment": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "paymentType": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "deliveryPrice": {
+                    "type": "number",
+                    "x-order": "14"
+                },
+                "fullSum": {
+                    "type": "number",
+                    "x-order": "15"
+                },
+                "status": {
+                    "type": "integer",
+                    "x-order": "16"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "17"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "18"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "19"
+                },
+                "system": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "chatID": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "accountID": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "regionID": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "customerName": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "customerPhone": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "city": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "district": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "street": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.ProductImages": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "productId": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "image": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "7"
+                }
+            }
+        },
+        "models.ProductRates": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "orderId": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "productId": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "accountId": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "accountFirstname": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "rate": {
+                    "type": "integer",
+                    "x-order": "6"
+                },
+                "description": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "8"
+                }
+            }
+        },
+        "models.ProductWithImages": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "groupId": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "price": {
+                    "type": "number",
+                    "x-order": "11"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "15"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "16"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "17"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "18"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "19"
+                },
+                "url": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ProductImages"
+                    },
+                    "x-order": "21"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "9"
+                },
+                "rate": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Products": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "groupId": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "price": {
+                    "type": "number",
+                    "x-order": "11"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "15"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "16"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "17"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "18"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "19"
+                },
+                "url": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "9"
+                },
+                "rate": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ProductsWithImagesAndPagination": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ProductWithImages"
+                    },
+                    "x-order": "1"
+                },
+                "page": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "pageCount": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "count": {
+                    "type": "integer",
+                    "x-order": "5"
+                }
+            }
+        },
+        "models.RegistrationAccountInput": {
+            "type": "object",
+            "required": [
+                "firstName",
+                "lastName",
+                "password",
+                "phoneNumber"
+            ],
+            "properties": {
+                "regionId": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "chatId": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "system": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "firstName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "x-order": "3"
+                },
+                "lastName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "x-order": "4"
+                },
+                "birthday": {
+                    "type": "string",
+                    "x-order": "5",
+                    "example": "2006-11-22"
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "x-order": "6",
+                    "example": "998901234323"
+                },
+                "password": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "language": {
+                    "type": "string",
+                    "maxLength": 2,
+                    "x-order": "8",
+                    "example": "uz"
+                },
+                "verificationCode": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.Settings": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "title": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "key": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "value": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "created_at": {
+                    "type": "string",
+                    "x-order": "5",
+                    "example": "2022-01-15T11:27:04+05:00"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "x-order": "6",
+                    "example": "2022-01-15T11:27:04+05:00"
+                },
+                "deleted_at": {
+                    "type": "string",
+                    "x-order": "7",
+                    "example": "2022-01-15T11:27:04+05:00"
+                }
+            }
+        },
+        "models.UpdateAccountInput": {
+            "type": "object",
+            "required": [
+                "firstName"
+            ],
+            "properties": {
+                "regionId": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "system": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "chatId": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "firstName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "x-order": "4"
+                },
+                "lastName": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "birthday": {
+                    "type": "string",
+                    "x-order": "6",
+                    "example": "2006-11-22"
+                },
+                "password": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "language": {
+                    "type": "string",
+                    "maxLength": 2,
+                    "x-order": "8",
+                    "example": "uz"
+                },
+                "blocked": {
+                    "type": "integer",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.UpdateOrderInput": {
+            "type": "object",
+            "properties": {
+                "system": {
+                    "type": "string",
+                    "x-order": "1"
+                },
+                "home": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "apartment": {
+                    "type": "string",
+                    "x-order": "11"
+                },
+                "comment": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "paymentType": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "deliveryPrice": {
+                    "type": "number",
+                    "x-order": "14"
+                },
+                "fullSum": {
+                    "type": "number",
+                    "x-order": "15"
+                },
+                "status": {
+                    "type": "integer",
+                    "x-order": "16"
+                },
+                "accountID": {
+                    "type": "integer",
+                    "x-order": "2"
+                },
+                "chatID": {
+                    "type": "integer",
+                    "x-order": "3"
+                },
+                "regionID": {
+                    "type": "integer",
+                    "x-order": "4"
+                },
+                "customerName": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "customerPhone": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "city": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "district": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "street": {
+                    "type": "string",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.UpdateProductInput": {
+            "type": "object",
+            "required": [
+                "descriptionUz",
+                "groupId",
+                "nameUz",
+                "price"
+            ],
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "x-order": "10"
+                },
+                "price": {
+                    "type": "number",
+                    "x-order": "11"
+                },
+                "seoDescription": {
+                    "type": "string",
+                    "x-order": "12"
+                },
+                "seoKeywords": {
+                    "type": "string",
+                    "x-order": "13"
+                },
+                "seoText": {
+                    "type": "string",
+                    "x-order": "14"
+                },
+                "seoTitle": {
+                    "type": "string",
+                    "x-order": "15"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "x-order": "16"
+                },
+                "url": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "nameUz": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "nameRu": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "nameEn": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "descriptionUz": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "descriptionRu": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "descriptionEn": {
+                    "type": "string",
+                    "x-order": "8"
+                },
+                "position": {
+                    "type": "integer",
+                    "x-order": "9"
+                }
+            }
+        },
+        "models.UpdateSettingInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "title": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "key": {
+                    "type": "string",
+                    "x-order": "3"
+                },
+                "value": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "created_at": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "deleted_at": {
+                    "type": "string",
+                    "x-order": "7"
+                }
+            }
+        },
+        "models.Users": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "x-order": "1"
+                },
+                "username": {
+                    "type": "string",
+                    "x-order": "2"
+                },
+                "email": {
+                    "type": "string",
+                    "x-order": "4"
+                },
+                "lastVisit": {
+                    "type": "string",
+                    "x-order": "5"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "x-order": "6"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "x-order": "7"
+                },
+                "deletedAt": {
+                    "type": "string",
+                    "x-order": "8"
+                }
+            }
+        },
+        "v1.Response": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
