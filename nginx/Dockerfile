@@ -9,9 +9,9 @@ RUN mkdir -p /etc/www/front-site \
 COPY ./fullchain.pem /etc/nginx/keys/
 COPY ./privkey.pem /etc/nginx/keys/
 COPY ./chain.pem /etc/nginx/keys/
-COPY ./cert.pem /etc/nginx/keys/
+# COPY ./cert.pem /etc/nginx/keys/
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 EXPOSE 443
