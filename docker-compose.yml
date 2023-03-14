@@ -51,21 +51,21 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./keys:/etc/nginx/keys
+      - .kegel-backend/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .kegel-backend/keys:/etc/nginx/keys
       - front-site:/var/www/front-site
       - front-admin:/var/www/front-admin
 
   front-admin:
     build:
-      context: ./deploy/front-admin
+      context: ./front-admin
       dockerfile: Dockerfile
     volumes:
       - front-admin:/app/build
 
   front-site:
     build:
-      context: ./deploy/front-site
+      context: ./front-site
       dockerfile: Dockerfile
     volumes:
       - front-site:/app/build
