@@ -42,7 +42,7 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: nginx
+      context: ./nginx
       dockerfile: Dockerfile
     depends_on:
       - app
@@ -50,6 +50,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - /etc/letsencrypt/live/kegel.uz:/etc/nginx/keys
       - /var/www/front-site:/etc/www/front-site
       - /var/www/front-admin:/etc/www/front-admin
 

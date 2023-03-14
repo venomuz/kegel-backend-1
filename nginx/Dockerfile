@@ -6,13 +6,6 @@ RUN mkdir -p /etc/www/front-site \
  && chown -R root:root /etc/nginx/keys \
  && chmod -R 600 /etc/nginx/keys 
 
-WORKDIR /etc/nginx/keys/
-
-COPY ./fullchain.pem .
-COPY ./privkey.pem .
-COPY ./chain.pem .
-COPY ./cert.pem .
-
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
