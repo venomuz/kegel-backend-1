@@ -12,7 +12,7 @@ services:
     volumes:
       - /root/public:/root/public
     env_file:
-      - ./kegel-backend/.env
+      - .env
 
   mariadb-db:
     container_name: mariadb
@@ -24,7 +24,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     env_file:
-      - ./kegel-backend/.env
+      - .env
 
   redis:
     container_name: "redis"
@@ -37,40 +37,21 @@ services:
     volumes:
       - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
     env_file:
-      - ./kegel-backend/.env
+      - .env
 
   nginx:
     container_name: nginx
-    image: nginx:1.22.1
+    image: nginx:1.22.1-alpine
     depends_on:
-      - mariadb-db
-      - front-admin
-      - front-site
       - app
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - .kegel-backend/nginx.conf:/etc/nginx/conf.d/default.conf
-      - .kegel-backend/keys:/etc/nginx/keys
-      - front-site:/var/www/front-site
-      - front-admin:/var/www/front-admin
-
-  front-admin:
-    build:
-      context: ./front-admin
-      dockerfile: Dockerfile
-    volumes:
-      - front-admin:/app/build
-
-  front-site:
-    build:
-      context: ./front-site
-      dockerfile: Dockerfile
-    volumes:
-      - front-site:/app/build
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./keys:/etc/nginx/keys
+      - /var/www/front-site:/etc/www/front-site
+      - /var/www/front-admin:/etc/www/front-admin
 
 volumes:
   mariadb_data:
-  front-site:
-  front-admin:
