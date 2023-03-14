@@ -12,7 +12,7 @@ services:
     volumes:
       - /root/public:/root/public
     env_file:
-      - .env
+      - .kegel-backend/env
 
   mariadb-db:
     container_name: mariadb
@@ -24,7 +24,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     env_file:
-      - .env
+      - .kegel-backend/env
 
   redis:
     container_name: "redis"
@@ -37,7 +37,7 @@ services:
     volumes:
       - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
     env_file:
-      - .env
+      - .kegel-backend/env
 
   nginx:
     container_name: nginx
