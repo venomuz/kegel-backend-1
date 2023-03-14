@@ -1,10 +1,7 @@
 FROM nginx:1.22.1-alpine
 
 RUN mkdir -p /etc/www/front-site \
- && mkdir -p /etc/www/front-admin \
- && mkdir -p /etc/nginx/keys \
- && chown -R root:root /etc/nginx/keys \
- && chmod -R 600 /etc/nginx/keys 
+ && mkdir -p /etc/www/front-admin 
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 

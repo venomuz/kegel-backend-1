@@ -50,7 +50,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt/live/kegel.uz:/etc/nginx/keys
+      - /etc/letsencrypt/live/kegel.uz/:/etc/nginx/certs/
       - /var/www/front-site:/etc/www/front-site
       - /var/www/front-admin:/etc/www/front-admin
 
