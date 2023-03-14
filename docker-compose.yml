@@ -41,7 +41,9 @@ services:
 
   nginx:
     container_name: nginx
-    build: ./nginx
+    build:
+      context: nginx
+      dockerfile: Dockerfile
     depends_on:
       - app
     ports:
