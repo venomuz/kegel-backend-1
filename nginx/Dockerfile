@@ -8,7 +8,7 @@ RUN mkdir -p /etc/www/front-site \
 
 WORKDIR /etc/nginx/keys
 
-COPY . .
+ADD . .
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
