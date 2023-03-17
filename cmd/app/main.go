@@ -57,7 +57,7 @@ func main() {
 	rdbRepos := rdb.NewRedisRepo(rdbC)
 
 	psqlRepos := mysqlrepo.NewRepositories(db)
-
+	
 	services := service.NewServices(service.Deps{
 		MysqlRepos:   psqlRepos,
 		RdbRepos:     rdbRepos,

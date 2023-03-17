@@ -97,6 +97,8 @@ func (g *GroupsRepo) GetAllByFilter(ctx context.Context, input models.GetGroupsB
 		query = query.Where("enabled = ?", *input.Enabled)
 	}
 
+	query = query.Where("deleted_at IS NULL")
+
 	query = query.Order("-position DESC")
 
 	err := query.Debug().Find(&groups).Error
