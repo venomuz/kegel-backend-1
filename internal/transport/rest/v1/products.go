@@ -12,6 +12,7 @@ func (h *Handler) initProductsRoutes(api *gin.RouterGroup) {
 		api.POST("products", h.ProductCreate)
 		api.PUT("products/:id", h.ProductUpdate)
 		api.GET("products-by-filter", h.ProductsWithImagesGetByFilter)
+		api.GET("products-by-ids", h.ProductsGetByIDs)
 		api.GET("products/:id", h.ProductWithImagesGetByID)
 		api.GET("products-url/:url", h.ProductGetByUrl)
 		//api.GET("products/groups/:url", h.ProductsWithImagesGetByFilterAndGroupUrl)
@@ -150,6 +151,36 @@ func (h *Handler) ProductsWithImagesGetByFilter(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, products)
+}
+
+// ProductsGetByIDs
+//	@Summary		Get product with images by ids.
+//	@Description	This API to get product with images by ids.
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Param			data	body		models.GetProductsByIDsInput	true	"data body"
+//	@Success		200		{object}	[]models.ProductWithImages
+//	@Failure		400,404	{object}	Response
+//	@Failure		500		{object}	Response
+//	@Router			/v1/products-by-ids [GET]
+func (h *Handler) ProductsGetByIDs(c *gin.Context) {
+	var body models.GetProductsByIDsInput
+
+	err := c.ShouldBindQuery(&body)
+	if err != nil {
+		newResponse(c, http.StatusBadRequest, models.ErrInputBody.Error())
+		h.log.Error("error while bind to json ProductsGetByIDs", logger.Error(err))
+		return
+	}
+
+	product, err := h.services.Products.GetAllByIDs(c.Request.Context(), body)
+	if err != nil {
+		c.JSON(http.StatusOK, models.EmptyStruct{})
+		return
+	}
+
+	c.JSON(http.StatusOK, product)
 }
 
 // ProductWithImagesGetByID

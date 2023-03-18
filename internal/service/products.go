@@ -245,6 +245,50 @@ func (p *ProductsService) GetAllWithImagesByFilter(ctx context.Context, input mo
 	return productsWithImagesRes, err
 }
 
+func (p *ProductsService) GetAllByIDs(ctx context.Context, input models.GetProductsByIDsInput) ([]models.ProductWithImages, error) {
+	productsWithImagesRes := make([]models.ProductWithImages, 0, len(input.IDs))
+
+	setting, err := p.settingsService.GetByKey(ctx, "dollar")
+
+	dollar, err := strconv.ParseFloat(setting.Value, 64)
+	if err != nil {
+		return []models.ProductWithImages{}, err
+	}
+
+	images, err := p.productImagesService.GetAll(ctx)
+	if err != nil {
+		return []models.ProductWithImages{}, err
+	}
+
+	products, err := p.productsRepo.GetAllByIDs(ctx, input)
+	if err != nil {
+		return []models.ProductWithImages{}, err
+	}
+
+	for _, product := range products {
+		product.Price = 1000 * math.Round(product.Price/1000*dollar)
+
+		productsWithImage := models.ProductWithImages{
+			Products: product,
+		}
+
+		for _, image := range images {
+			if product.ID == image.ProductID {
+				productsWithImage.Images = append(productsWithImage.Images, image)
+			}
+		}
+
+		if productsWithImage.Images == nil {
+			productsWithImage.Images = []models.ProductImages{}
+		}
+
+		productsWithImagesRes = append(productsWithImagesRes, productsWithImage)
+	}
+
+	return productsWithImagesRes, err
+
+}
+
 func (p *ProductsService) GetByID(ctx context.Context, ID string) (models.Products, error) {
 	return p.productsRepo.GetByID(ctx, ID)
 }

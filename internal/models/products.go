@@ -86,6 +86,10 @@ type GetProductsByFilterInput struct {
 	PageSize      int      `form:"pageSize" extensions:"x-order=12"`
 }
 
+type GetProductsByIDsInput struct {
+	IDs []string `json:"ids"`
+}
+
 type ProductsWithImagesAndPagination struct {
 	Products  []ProductWithImages `json:"products" extensions:"x-order=1"`
 	Page      int                 `json:"page" extensions:"x-order=2"`

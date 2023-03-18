@@ -80,6 +80,7 @@ type Products interface {
 	GetAll(ctx context.Context) ([]models.Products, error)
 	// GetAllWithImagesByFilter GetAllByGroupUrlWithImages(ctx context.Context, url string) ([]models.ProductWithImages, error)
 	GetAllWithImagesByFilter(ctx context.Context, input models.GetProductsByFilterInput) (models.ProductsWithImagesAndPagination, error)
+	GetAllByIDs(ctx context.Context, input models.GetProductsByIDsInput) ([]models.ProductWithImages, error)
 	GetByID(ctx context.Context, ID string) (models.Products, error)
 	GetByIDWithImagesAndRates(ctx context.Context, ID string) (models.ProductWithImagesAndRates, error)
 	GetByUrlWithImagesAndRates(ctx context.Context, url string) (models.ProductWithImagesAndRates, error)

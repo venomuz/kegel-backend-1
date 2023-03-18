@@ -177,7 +177,6 @@ definitions:
     - descriptionUz
     - groupId
     - nameUz
-    - price
     type: object
   models.CreateProductRateInput:
     properties:
@@ -218,6 +217,13 @@ definitions:
       value:
         type: string
         x-order: "3"
+    type: object
+  models.GetProductsByIDsInput:
+    properties:
+      ids:
+        items:
+          type: string
+        type: array
     type: object
   models.Groups:
     properties:
@@ -816,7 +822,6 @@ definitions:
     - descriptionUz
     - groupId
     - nameUz
-    - price
     type: object
   models.UpdateSettingInput:
     properties:
@@ -1360,12 +1365,12 @@ paths:
         type: string
         x-order: "2"
       - in: formData
-        name: nameRu
+        name: nameUz
+        required: true
         type: string
         x-order: "3"
       - in: formData
-        name: nameUz
-        required: true
+        name: nameRu
         type: string
         x-order: "3"
       - in: formData
@@ -1846,6 +1851,42 @@ paths:
           schema:
             $ref: '#/definitions/v1.Response'
       summary: Get products with images by filter.
+      tags:
+      - Products
+  /v1/products-by-ids:
+    get:
+      consumes:
+      - application/json
+      description: This API to get product with images by ids.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.GetProductsByIDsInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ProductWithImages'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get product with images by ids.
       tags:
       - Products
   /v1/products-url/{url}:

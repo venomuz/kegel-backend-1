@@ -68,6 +68,7 @@ type Products interface {
 	GetAll(ctx context.Context) ([]models.Products, error)
 	GetAllByFilterAndGroupID(ctx context.Context, groupID string) ([]models.Products, error)
 	GetAllByFilter(ctx context.Context, input models.GetProductsByFilterInput) ([]models.Products, error)
+	GetAllByIDs(ctx context.Context, input models.GetProductsByIDsInput) ([]models.Products, error)
 	GetByID(ctx context.Context, ID string) (models.Products, error)
 	GetByUrl(ctx context.Context, url string) (models.Products, error)
 	GetCountNameUz(ctx context.Context, nameUz string, id ...string) (int64, error)

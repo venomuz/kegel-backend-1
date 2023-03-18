@@ -48,7 +48,7 @@ func (p *ProductImagesRepo) Update(ctx context.Context, productImage *models.Pro
 func (p *ProductImagesRepo) GetAll(ctx context.Context) ([]models.ProductImages, error) {
 	var productImages []models.ProductImages
 
-	err := p.db.WithContext(ctx).Order("-position DESC").Find(&productImages, "deleted_at IS NULL").Error
+	err := p.db.WithContext(ctx).Order("product_id").Find(&productImages, "deleted_at IS NULL").Error
 
 	return productImages, err
 }

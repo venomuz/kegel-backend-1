@@ -716,15 +716,15 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameRu",
-                        "in": "formData"
+                        "name": "nameUz",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameUz",
-                        "in": "formData",
-                        "required": true
+                        "name": "nameRu",
+                        "in": "formData"
                     },
                     {
                         "type": "string",
@@ -1473,6 +1473,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/v1/products-by-ids": {
+            "get": {
+                "description": "This API to get product with images by ids.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get product with images by ids.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GetProductsByIDsInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ProductWithImages"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/products-url/{url}": {
             "get": {
                 "description": "This API to get product by url.",
@@ -2210,8 +2265,7 @@ const docTemplate = `{
             "required": [
                 "descriptionUz",
                 "groupId",
-                "nameUz",
-                "price"
+                "nameUz"
             ],
             "properties": {
                 "url": {
@@ -2331,6 +2385,17 @@ const docTemplate = `{
                 }
             }
         },
+        "models.GetProductsByIDsInput": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "models.Groups": {
             "type": "object",
             "properties": {
@@ -2378,11 +2443,11 @@ const docTemplate = `{
                     "type": "string",
                     "x-order": "2"
                 },
-                "nameUz": {
+                "nameRu": {
                     "type": "string",
                     "x-order": "3"
                 },
-                "nameRu": {
+                "nameUz": {
                     "type": "string",
                     "x-order": "3"
                 },
@@ -2466,11 +2531,11 @@ const docTemplate = `{
                     "type": "string",
                     "x-order": "2"
                 },
-                "nameRu": {
+                "nameUz": {
                     "type": "string",
                     "x-order": "3"
                 },
-                "nameUz": {
+                "nameRu": {
                     "type": "string",
                     "x-order": "3"
                 },
@@ -2961,12 +3026,12 @@ const docTemplate = `{
                     "type": "integer",
                     "x-order": "2"
                 },
-                "system": {
-                    "type": "string",
-                    "x-order": "3"
-                },
                 "chatId": {
                     "type": "integer",
+                    "x-order": "3"
+                },
+                "system": {
+                    "type": "string",
                     "x-order": "3"
                 },
                 "firstName": {
@@ -3073,8 +3138,7 @@ const docTemplate = `{
             "required": [
                 "descriptionUz",
                 "groupId",
-                "nameUz",
-                "price"
+                "nameUz"
             ],
             "properties": {
                 "groupId": {

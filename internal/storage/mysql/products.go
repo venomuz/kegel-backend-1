@@ -135,6 +135,14 @@ func (p *ProductsRepo) GetAllByFilter(ctx context.Context, input models.GetProdu
 	return products, err
 }
 
+func (p *ProductsRepo) GetAllByIDs(ctx context.Context, input models.GetProductsByIDsInput) ([]models.Products, error) {
+	products := make([]models.Products, 0, len(input.IDs))
+
+	err := p.db.WithContext(ctx).Order("position DESC").Find(&products, "deleted_at IS NULL").Error
+
+	return products, err
+}
+
 func (p *ProductsRepo) GetByID(ctx context.Context, ID string) (models.Products, error) {
 	var product models.Products
 
