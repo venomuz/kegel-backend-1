@@ -615,26 +615,6 @@ definitions:
     type: object
   models.RegistrationAccountInput:
     properties:
-      birthday:
-        example: "2006-11-22"
-        type: string
-        x-order: "5"
-      chatId:
-        type: integer
-        x-order: "2"
-      firstName:
-        minLength: 2
-        type: string
-        x-order: "3"
-      language:
-        example: uz
-        maxLength: 2
-        type: string
-        x-order: "8"
-      lastName:
-        minLength: 2
-        type: string
-        x-order: "4"
       password:
         type: string
         x-order: "7"
@@ -642,18 +622,10 @@ definitions:
         example: "998901234323"
         type: string
         x-order: "6"
-      regionId:
-        type: integer
-        x-order: "1"
-      system:
-        type: string
-        x-order: "3"
       verificationCode:
         type: string
         x-order: "9"
     required:
-    - firstName
-    - lastName
     - password
     - phoneNumber
     type: object
@@ -1365,12 +1337,12 @@ paths:
         type: string
         x-order: "2"
       - in: formData
-        name: nameUz
-        required: true
+        name: nameRu
         type: string
         x-order: "3"
       - in: formData
-        name: nameRu
+        name: nameUz
+        required: true
         type: string
         x-order: "3"
       - in: formData
@@ -1854,10 +1826,10 @@ paths:
       tags:
       - Products
   /v1/products-by-ids:
-    get:
+    post:
       consumes:
       - application/json
-      description: This API to get product with images by ids.
+      description: This API to get products with images by ids.
       parameters:
       - description: data body
         in: body
@@ -1886,7 +1858,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/v1.Response'
-      summary: Get product with images by ids.
+      summary: Get products with images by ids.
       tags:
       - Products
   /v1/products-url/{url}:
@@ -2191,6 +2163,31 @@ paths:
       summary: Update a setting.
       tags:
       - Settings
+  /v1/users/auth-check:
+    get:
+      description: This API to check user authorization.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Check user authorization
+      tags:
+      - Users
   /v1/users/login:
     post:
       consumes:

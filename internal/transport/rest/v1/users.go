@@ -13,6 +13,7 @@ func (h *Handler) initUsersRoutes(api *gin.RouterGroup) {
 	{
 		api.POST("users/login", h.UserLogin)
 		api.POST("users/logout", h.UserLogout)
+		api.GET("users/auth-check", h.UserAuthCheck)
 	}
 }
 
@@ -84,5 +85,26 @@ func (h *Handler) UserLogout(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out hello"})
+	c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
+}
+
+// UserAuthCheck
+//	@Summary		Check user authorization
+//	@Description	This API to check user authorization.
+//	@Tags			Users
+//	@Produce		json
+//	@Success		200		{object}	Response
+//	@Failure		400,404	{object}	Response
+//	@Failure		500		{object}	Response
+//	@Router			/v1/users/auth-check [GET]
+func (h *Handler) UserAuthCheck(c *gin.Context) {
+
+	session := sessions.Default(c)
+	user := session.Get(h.cfg.UsersKey)
+	if user == nil {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "authorized"})
 }

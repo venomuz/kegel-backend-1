@@ -19,15 +19,8 @@ func NewAccountsRepo(db *gorm.DB) *AccountsRepo {
 
 func (a *AccountsRepo) Create(ctx context.Context, account *models.Accounts) error {
 	err := a.db.Debug().WithContext(ctx).Select(
-		"region_id",
-		"chat_id",
-		"system",
-		"first_name",
-		"last_name",
-		"birthday",
 		"phone_number",
 		"password",
-		"language",
 		"created_at",
 	).Create(account).Error
 

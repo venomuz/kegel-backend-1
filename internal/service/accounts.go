@@ -29,15 +29,8 @@ func NewAccountsService(accountsRepo mysql.Accounts, rdbRepos rdb.Repository, sm
 func (a *AccountsService) Create(ctx context.Context, input models.RegistrationAccountInput) (models.Accounts, error) {
 
 	account := models.Accounts{
-		RegionID:    input.RegionID,
-		ChatID:      input.ChatID,
-		System:      input.System,
-		FirstName:   input.FirstName,
-		LastName:    input.LastName,
-		Birthday:    input.Birthday,
 		PhoneNumber: input.PhoneNumber,
 		Password:    input.Password,
-		Language:    input.Language,
 		CreatedAt:   time.Now().Format("2006-01-02 15:04:05"),
 	}
 
@@ -105,15 +98,8 @@ func (a *AccountsService) Registration(ctx context.Context, input models.Registr
 	}
 
 	account := models.Accounts{
-		RegionID:    input.RegionID,
-		ChatID:      input.ChatID,
-		System:      input.System,
-		FirstName:   input.FirstName,
-		LastName:    input.LastName,
-		Birthday:    input.Birthday,
 		PhoneNumber: input.PhoneNumber,
 		Password:    hashed,
-		Language:    input.Language,
 		CreatedAt:   time.Now().Format("2006-01-02 15:04:05"),
 	}
 

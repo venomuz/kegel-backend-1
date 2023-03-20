@@ -716,15 +716,15 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameUz",
-                        "in": "formData",
-                        "required": true
+                        "name": "nameRu",
+                        "in": "formData"
                     },
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameRu",
-                        "in": "formData"
+                        "name": "nameUz",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "string",
@@ -1474,8 +1474,8 @@ const docTemplate = `{
             }
         },
         "/v1/products-by-ids": {
-            "get": {
-                "description": "This API to get product with images by ids.",
+            "post": {
+                "description": "This API to get products with images by ids.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1485,7 +1485,7 @@ const docTemplate = `{
                 "tags": [
                     "Products"
                 ],
-                "summary": "Get product with images by ids.",
+                "summary": "Get products with images by ids.",
                 "parameters": [
                     {
                         "description": "data body",
@@ -1973,6 +1973,44 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/users/auth-check": {
+            "get": {
+                "description": "This API to check user authorization.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Check user authorization",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
                         "schema": {
                             "$ref": "#/definitions/v1.Response"
                         }
@@ -2531,11 +2569,11 @@ const docTemplate = `{
                     "type": "string",
                     "x-order": "2"
                 },
-                "nameUz": {
+                "nameRu": {
                     "type": "string",
                     "x-order": "3"
                 },
-                "nameRu": {
+                "nameUz": {
                     "type": "string",
                     "x-order": "3"
                 },
@@ -2616,11 +2654,11 @@ const docTemplate = `{
                     "type": "string",
                     "x-order": "2"
                 },
-                "chatID": {
+                "accountID": {
                     "type": "integer",
                     "x-order": "3"
                 },
-                "accountID": {
+                "chatID": {
                     "type": "integer",
                     "x-order": "3"
                 },
@@ -2926,39 +2964,10 @@ const docTemplate = `{
         "models.RegistrationAccountInput": {
             "type": "object",
             "required": [
-                "firstName",
-                "lastName",
                 "password",
                 "phoneNumber"
             ],
             "properties": {
-                "regionId": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "chatId": {
-                    "type": "integer",
-                    "x-order": "2"
-                },
-                "firstName": {
-                    "type": "string",
-                    "minLength": 2,
-                    "x-order": "3"
-                },
-                "system": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "lastName": {
-                    "type": "string",
-                    "minLength": 2,
-                    "x-order": "4"
-                },
-                "birthday": {
-                    "type": "string",
-                    "x-order": "5",
-                    "example": "2006-11-22"
-                },
                 "phoneNumber": {
                     "type": "string",
                     "x-order": "6",
@@ -2967,12 +2976,6 @@ const docTemplate = `{
                 "password": {
                     "type": "string",
                     "x-order": "7"
-                },
-                "language": {
-                    "type": "string",
-                    "maxLength": 2,
-                    "x-order": "8",
-                    "example": "uz"
                 },
                 "verificationCode": {
                     "type": "string",
@@ -3026,12 +3029,12 @@ const docTemplate = `{
                     "type": "integer",
                     "x-order": "2"
                 },
-                "chatId": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
                 "system": {
                     "type": "string",
+                    "x-order": "3"
+                },
+                "chatId": {
+                    "type": "integer",
                     "x-order": "3"
                 },
                 "firstName": {

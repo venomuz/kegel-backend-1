@@ -20,16 +20,9 @@ type Accounts struct {
 }
 
 type RegistrationAccountInput struct {
-	RegionID         uint32  `json:"regionId" extensions:"x-order=1"`
-	ChatID           *uint32 `json:"chatId" extensions:"x-order=2"`
-	System           string  `json:"system" extensions:"x-order=3"`
-	FirstName        string  `json:"firstName" binding:"min=2,required" extensions:"x-order=3"`
-	LastName         string  `json:"lastName" binding:"min=2,required" extensions:"x-order=4"`
-	Birthday         *string `json:"birthday" example:"2006-11-22" time_format:"2006-01-02" extensions:"x-order=5"`
-	PhoneNumber      string  `json:"phoneNumber" binding:"required" example:"998901234323" extensions:"x-order=6"`
-	Password         string  `json:"password" binding:"required" extensions:"x-order=7"`
-	Language         string  `json:"language" binding:"max=2" example:"uz" extensions:"x-order=8"`
-	VerificationCode string  `json:"verificationCode" biding:"max=5,min=5,required" extensions:"x-order=9"`
+	PhoneNumber      string `json:"phoneNumber" binding:"required" example:"998901234323" extensions:"x-order=6"`
+	Password         string `json:"password" binding:"required" extensions:"x-order=7"`
+	VerificationCode string `json:"verificationCode" biding:"max=5,min=5,required" extensions:"x-order=9"`
 }
 
 type UpdateAccountInput struct {
