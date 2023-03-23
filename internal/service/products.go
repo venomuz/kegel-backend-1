@@ -168,7 +168,9 @@ func (p *ProductsService) GetAllWithImagesByFilter(ctx context.Context, input mo
 		}
 
 		for _, product := range products {
-			product.Price = 1000 * math.Round(product.Price/1000*dollar)
+			if !input.Dollar {
+				product.Price = 1000 * math.Round(product.Price*dollar/1000)
+			}
 
 			productsWithImage := models.ProductWithImages{
 				Products: product,
@@ -209,7 +211,9 @@ func (p *ProductsService) GetAllWithImagesByFilter(ctx context.Context, input mo
 
 	products, err := p.productsRepo.GetAllByFilter(ctx, input)
 	for _, product := range products {
-		product.Price = 1000 * math.Round(product.Price/1000*dollar)
+		if !input.Dollar {
+			product.Price = 1000 * math.Round(product.Price*dollar/1000)
+		}
 
 		productsWithImage := models.ProductWithImages{
 			Products: product,

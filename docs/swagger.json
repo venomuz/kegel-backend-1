@@ -414,13 +414,13 @@
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameEn",
+                        "name": "nameRu",
                         "in": "formData"
                     },
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameRu",
+                        "name": "nameEn",
                         "in": "formData"
                     },
                     {
@@ -708,15 +708,15 @@
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameRu",
-                        "in": "formData"
+                        "name": "nameUz",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "string",
                         "x-order": "3",
-                        "name": "nameUz",
-                        "in": "formData",
-                        "required": true
+                        "name": "nameRu",
+                        "in": "formData"
                     },
                     {
                         "type": "string",
@@ -1378,57 +1378,53 @@
                 "summary": "Get products with images by filter.",
                 "parameters": [
                     {
-                        "type": "string",
-                        "x-order": "1",
-                        "name": "nameUz",
-                        "in": "query"
-                    },
-                    {
                         "type": "boolean",
-                        "x-order": "10",
                         "name": "all",
                         "in": "query"
                     },
                     {
+                        "type": "boolean",
+                        "name": "desc",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "descriptionUz",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "dollar",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "enabled",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "groupUrl",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "nameUz",
+                        "in": "query"
+                    },
+                    {
                         "type": "integer",
-                        "x-order": "11",
                         "name": "page",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "x-order": "12",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
-                        "type": "string",
-                        "x-order": "2",
-                        "name": "url",
-                        "in": "query"
-                    },
-                    {
                         "type": "number",
-                        "x-order": "3",
                         "name": "price",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "4",
-                        "name": "descriptionUz",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "6",
-                        "name": "groupUrl",
-                        "in": "query"
-                    },
-                    {
-                        "type": "boolean",
-                        "x-order": "7",
-                        "name": "enabled",
                         "in": "query"
                     },
                     {
@@ -1438,14 +1434,12 @@
                             "created_at"
                         ],
                         "type": "string",
-                        "x-order": "8",
                         "name": "sortBy",
                         "in": "query"
                     },
                     {
-                        "type": "boolean",
-                        "x-order": "9",
-                        "name": "desc",
+                        "type": "string",
+                        "name": "url",
                         "in": "query"
                     }
                 ],
@@ -2298,65 +2292,50 @@
                 "nameUz"
             ],
             "properties": {
-                "url": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "price": {
-                    "type": "number",
-                    "x-order": "10"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "11"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "15"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameEn": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "5"
+                "descriptionEn": {
+                    "type": "string"
                 },
                 "descriptionRu": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "string"
                 },
-                "descriptionEn": {
-                    "type": "string",
-                    "x-order": "7"
+                "descriptionUz": {
+                    "type": "string"
                 },
-                "position": {
-                    "type": "integer",
-                    "x-order": "8"
+                "enabled": {
+                    "type": "boolean"
                 },
                 "groupId": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameRu": {
+                    "type": "string"
+                },
+                "nameUz": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },
@@ -2561,11 +2540,11 @@
                     },
                     "x-order": "2"
                 },
-                "nameUz": {
+                "nameRu": {
                     "type": "string",
                     "x-order": "3"
                 },
-                "nameRu": {
+                "nameUz": {
                     "type": "string",
                     "x-order": "3"
                 },
@@ -2646,11 +2625,11 @@
                     "type": "string",
                     "x-order": "2"
                 },
-                "accountID": {
+                "chatID": {
                     "type": "integer",
                     "x-order": "3"
                 },
-                "chatID": {
+                "accountID": {
                     "type": "integer",
                     "x-order": "3"
                 },
@@ -2753,203 +2732,159 @@
         "models.ProductWithImages": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "groupId": {
-                    "type": "string",
-                    "x-order": "10"
-                },
-                "price": {
-                    "type": "number",
-                    "x-order": "11"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "15"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "16"
-                },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "17"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "18"
+                    "type": "string"
                 },
                 "deletedAt": {
-                    "type": "string",
-                    "x-order": "19"
+                    "type": "string"
                 },
-                "url": {
-                    "type": "string",
-                    "x-order": "2"
+                "descriptionEn": {
+                    "type": "string"
+                },
+                "descriptionRu": {
+                    "type": "string"
+                },
+                "descriptionUz": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
                 },
                 "images": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.ProductImages"
-                    },
-                    "x-order": "21"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "4"
+                    }
                 },
                 "nameEn": {
-                    "type": "string",
-                    "x-order": "5"
+                    "type": "string"
                 },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "6"
+                "nameRu": {
+                    "type": "string"
                 },
-                "descriptionRu": {
-                    "type": "string",
-                    "x-order": "7"
-                },
-                "descriptionEn": {
-                    "type": "string",
-                    "x-order": "8"
+                "nameUz": {
+                    "type": "string"
                 },
                 "position": {
-                    "type": "integer",
-                    "x-order": "9"
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
                 },
                 "rate": {
                     "type": "integer"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },
         "models.Products": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "groupId": {
-                    "type": "string",
-                    "x-order": "10"
-                },
-                "price": {
-                    "type": "number",
-                    "x-order": "11"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "15"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "16"
-                },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "17"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "18"
+                    "type": "string"
                 },
                 "deletedAt": {
-                    "type": "string",
-                    "x-order": "19"
-                },
-                "url": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "nameEn": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "6"
-                },
-                "descriptionRu": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 },
                 "descriptionEn": {
-                    "type": "string",
-                    "x-order": "8"
+                    "type": "string"
+                },
+                "descriptionRu": {
+                    "type": "string"
+                },
+                "descriptionUz": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameRu": {
+                    "type": "string"
+                },
+                "nameUz": {
+                    "type": "string"
                 },
                 "position": {
-                    "type": "integer",
-                    "x-order": "9"
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
                 },
                 "rate": {
                     "type": "integer"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },
         "models.ProductsWithImagesAndPagination": {
             "type": "object",
             "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "pageCount": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                },
                 "products": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.ProductWithImages"
-                    },
-                    "x-order": "1"
-                },
-                "page": {
-                    "type": "integer",
-                    "x-order": "2"
-                },
-                "pageSize": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
-                "pageCount": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
-                "count": {
-                    "type": "integer",
-                    "x-order": "5"
+                    }
                 }
             }
         },
@@ -3021,12 +2956,12 @@
                     "type": "integer",
                     "x-order": "2"
                 },
-                "chatId": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
                 "system": {
                     "type": "string",
+                    "x-order": "3"
+                },
+                "chatId": {
+                    "type": "integer",
                     "x-order": "3"
                 },
                 "firstName": {
@@ -3136,65 +3071,50 @@
                 "nameUz"
             ],
             "properties": {
-                "groupId": {
-                    "type": "string",
-                    "x-order": "10"
-                },
-                "price": {
-                    "type": "number",
-                    "x-order": "11"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "15"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "16"
-                },
-                "url": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "nameEn": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "6"
+                "descriptionEn": {
+                    "type": "string"
                 },
                 "descriptionRu": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 },
-                "descriptionEn": {
-                    "type": "string",
-                    "x-order": "8"
+                "descriptionUz": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameRu": {
+                    "type": "string"
+                },
+                "nameUz": {
+                    "type": "string"
                 },
                 "position": {
-                    "type": "integer",
-                    "x-order": "9"
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },

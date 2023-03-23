@@ -130,49 +130,34 @@ definitions:
     properties:
       descriptionEn:
         type: string
-        x-order: "7"
       descriptionRu:
         type: string
-        x-order: "6"
       descriptionUz:
         type: string
-        x-order: "5"
       enabled:
         type: boolean
-        x-order: "15"
       groupId:
         type: string
-        x-order: "9"
       nameEn:
         type: string
-        x-order: "4"
       nameRu:
         type: string
-        x-order: "3"
       nameUz:
         type: string
-        x-order: "2"
       position:
         type: integer
-        x-order: "8"
       price:
         type: number
-        x-order: "10"
       seoDescription:
         type: string
-        x-order: "11"
       seoKeywords:
         type: string
-        x-order: "12"
       seoText:
         type: string
-        x-order: "13"
       seoTitle:
         type: string
-        x-order: "14"
       url:
         type: string
-        x-order: "1"
     required:
     - descriptionUz
     - groupId
@@ -468,150 +453,106 @@ definitions:
     properties:
       createdAt:
         type: string
-        x-order: "17"
       deletedAt:
         type: string
-        x-order: "19"
       descriptionEn:
         type: string
-        x-order: "8"
       descriptionRu:
         type: string
-        x-order: "7"
       descriptionUz:
         type: string
-        x-order: "6"
       enabled:
         type: boolean
-        x-order: "16"
       groupId:
         type: string
-        x-order: "10"
       id:
         type: string
-        x-order: "1"
       images:
         items:
           $ref: '#/definitions/models.ProductImages'
         type: array
-        x-order: "21"
       nameEn:
         type: string
-        x-order: "5"
       nameRu:
         type: string
-        x-order: "4"
       nameUz:
         type: string
-        x-order: "3"
       position:
         type: integer
-        x-order: "9"
       price:
         type: number
-        x-order: "11"
       rate:
         type: integer
       seoDescription:
         type: string
-        x-order: "12"
       seoKeywords:
         type: string
-        x-order: "13"
       seoText:
         type: string
-        x-order: "14"
       seoTitle:
         type: string
-        x-order: "15"
       updatedAt:
         type: string
-        x-order: "18"
       url:
         type: string
-        x-order: "2"
     type: object
   models.Products:
     properties:
       createdAt:
         type: string
-        x-order: "17"
       deletedAt:
         type: string
-        x-order: "19"
       descriptionEn:
         type: string
-        x-order: "8"
       descriptionRu:
         type: string
-        x-order: "7"
       descriptionUz:
         type: string
-        x-order: "6"
       enabled:
         type: boolean
-        x-order: "16"
       groupId:
         type: string
-        x-order: "10"
       id:
         type: string
-        x-order: "1"
       nameEn:
         type: string
-        x-order: "5"
       nameRu:
         type: string
-        x-order: "4"
       nameUz:
         type: string
-        x-order: "3"
       position:
         type: integer
-        x-order: "9"
       price:
         type: number
-        x-order: "11"
       rate:
         type: integer
       seoDescription:
         type: string
-        x-order: "12"
       seoKeywords:
         type: string
-        x-order: "13"
       seoText:
         type: string
-        x-order: "14"
       seoTitle:
         type: string
-        x-order: "15"
       updatedAt:
         type: string
-        x-order: "18"
       url:
         type: string
-        x-order: "2"
     type: object
   models.ProductsWithImagesAndPagination:
     properties:
       count:
         type: integer
-        x-order: "5"
       page:
         type: integer
-        x-order: "2"
       pageCount:
         type: integer
-        x-order: "4"
       pageSize:
         type: integer
-        x-order: "3"
       products:
         items:
           $ref: '#/definitions/models.ProductWithImages'
         type: array
-        x-order: "1"
     type: object
   models.RegistrationAccountInput:
     properties:
@@ -747,49 +688,34 @@ definitions:
     properties:
       descriptionEn:
         type: string
-        x-order: "8"
       descriptionRu:
         type: string
-        x-order: "7"
       descriptionUz:
         type: string
-        x-order: "6"
       enabled:
         type: boolean
-        x-order: "16"
       groupId:
         type: string
-        x-order: "10"
       nameEn:
         type: string
-        x-order: "5"
       nameRu:
         type: string
-        x-order: "4"
       nameUz:
         type: string
-        x-order: "3"
       position:
         type: integer
-        x-order: "9"
       price:
         type: number
-        x-order: "11"
       seoDescription:
         type: string
-        x-order: "12"
       seoKeywords:
         type: string
-        x-order: "13"
       seoText:
         type: string
-        x-order: "14"
       seoTitle:
         type: string
-        x-order: "15"
       url:
         type: string
-        x-order: "2"
     required:
     - descriptionUz
     - groupId
@@ -1120,11 +1046,11 @@ paths:
         type: string
         x-order: "2"
       - in: formData
-        name: nameEn
+        name: nameRu
         type: string
         x-order: "3"
       - in: formData
-        name: nameRu
+        name: nameEn
         type: string
         x-order: "3"
       - in: formData
@@ -1337,12 +1263,12 @@ paths:
         type: string
         x-order: "2"
       - in: formData
-        name: nameRu
+        name: nameUz
+        required: true
         type: string
         x-order: "3"
       - in: formData
-        name: nameUz
-        required: true
+        name: nameRu
         type: string
         x-order: "3"
       - in: formData
@@ -1764,41 +1690,35 @@ paths:
       description: This API to get products with images by filter.
       parameters:
       - in: query
-        name: nameUz
-        type: string
-        x-order: "1"
-      - in: query
         name: all
         type: boolean
-        x-order: "10"
       - in: query
-        name: page
-        type: integer
-        x-order: "11"
-      - in: query
-        name: pageSize
-        type: integer
-        x-order: "12"
-      - in: query
-        name: url
-        type: string
-        x-order: "2"
-      - in: query
-        name: price
-        type: number
-        x-order: "3"
+        name: desc
+        type: boolean
       - in: query
         name: descriptionUz
         type: string
-        x-order: "4"
       - in: query
-        name: groupUrl
-        type: string
-        x-order: "6"
+        name: dollar
+        type: boolean
       - in: query
         name: enabled
         type: boolean
-        x-order: "7"
+      - in: query
+        name: groupUrl
+        type: string
+      - in: query
+        name: nameUz
+        type: string
+      - in: query
+        name: page
+        type: integer
+      - in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: price
+        type: number
       - enum:
         - name_uz
         - price
@@ -1806,11 +1726,9 @@ paths:
         in: query
         name: sortBy
         type: string
-        x-order: "8"
       - in: query
-        name: desc
-        type: boolean
-        x-order: "9"
+        name: url
+        type: string
       produces:
       - application/json
       responses:
