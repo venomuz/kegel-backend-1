@@ -11,120 +11,88 @@ definitions:
     properties:
       authKey:
         type: string
-        x-order: "11"
       birthday:
         type: string
-        x-order: "6"
       blocked:
         type: integer
-        x-order: "12"
       chatId:
         type: integer
-        x-order: "3"
       createdAt:
         type: string
-        x-order: "13"
       deletedAt:
         type: string
-        x-order: "15"
       firstName:
         type: string
-        x-order: "4"
       id:
         type: integer
-        x-order: "1"
       language:
         type: string
-        x-order: "10"
       lastName:
         type: string
-        x-order: "5"
       lastVisit:
         type: string
-        x-order: "9"
       password:
         type: string
-        x-order: "8"
       phoneNumber:
         type: string
-        x-order: "7"
       regionId:
         type: integer
-        x-order: "2"
       system:
         type: string
-        x-order: "3"
       updatedAt:
         type: string
-        x-order: "14"
     type: object
   models.CreateOrderProductsInput:
     properties:
       amount:
         type: number
-        x-order: "2"
       productId:
         type: string
-        x-order: "1"
     required:
     - amount
     - productId
     type: object
   models.CreateOrderWithProductsInput:
     properties:
-      accountID:
+      accountId:
         type: integer
-        x-order: "2"
       apartment:
         type: string
-        x-order: "11"
-      chatID:
+      chatId:
         type: integer
-        x-order: "3"
       city:
         type: string
-        x-order: "7"
       comment:
         type: string
-        x-order: "12"
       customerName:
         type: string
-        x-order: "5"
       customerPhone:
         type: string
-        x-order: "6"
       deliveryPrice:
         type: number
-        x-order: "14"
       district:
         type: string
-        x-order: "8"
       fullSum:
         type: number
-        x-order: "15"
       home:
         type: string
-        x-order: "10"
       orderProducts:
         items:
           $ref: '#/definitions/models.CreateOrderProductsInput'
         type: array
-        x-order: "17"
       paymentType:
         type: string
-        x-order: "13"
-      regionID:
+      regionId:
         type: integer
-        x-order: "4"
       status:
         type: integer
-        x-order: "16"
       street:
         type: string
-        x-order: "9"
       system:
         type: string
-        x-order: "1"
+    required:
+    - accountId
+    - customerPhone
     type: object
   models.CreateProductInput:
     properties:
@@ -167,41 +135,28 @@ definitions:
     properties:
       description:
         type: string
-        x-order: "6"
       noname:
-        description: AccountFirstname string `json:"-" extensions:"x-order=4"`
+        description: AccountFirstname string `json:"-"`
         type: boolean
-        x-order: "4"
       orderId:
         type: integer
-        x-order: "1"
       productId:
         type: string
-        x-order: "2"
       rate:
         type: integer
-        x-order: "5"
     type: object
   models.CreateSettingInput:
     properties:
-      created_at:
-        type: string
-        x-order: "4"
-      deleted_at:
-        type: string
-        x-order: "6"
       key:
         type: string
-        x-order: "2"
       title:
         type: string
-        x-order: "1"
-      updated_at:
-        type: string
-        x-order: "5"
       value:
         type: string
-        x-order: "3"
+    required:
+    - key
+    - title
+    - value
     type: object
   models.GetProductsByIDsInput:
     properties:
@@ -214,61 +169,42 @@ definitions:
     properties:
       createdAt:
         type: string
-        x-order: "16"
       deletedAt:
         type: string
-        x-order: "18"
       descriptionEn:
         type: string
-        x-order: "7"
       descriptionRu:
         type: string
-        x-order: "6"
       descriptionUz:
         type: string
-        x-order: "5"
       enabled:
         type: boolean
-        x-order: "15"
       id:
         type: string
-        x-order: "1"
       image:
         type: string
-        x-order: "10"
       nameEn:
         type: string
-        x-order: "4"
       nameRu:
         type: string
-        x-order: "3"
       nameUz:
         type: string
-        x-order: "3"
       parentGroup:
         type: string
-        x-order: "9"
       position:
         type: integer
-        x-order: "8"
       seoDescription:
         type: string
-        x-order: "11"
       seoKeywords:
         type: string
-        x-order: "12"
       seoText:
         type: string
-        x-order: "13"
       seoTitle:
         type: string
-        x-order: "14"
       updatedAt:
         type: string
-        x-order: "17"
       url:
         type: string
-        x-order: "2"
     type: object
   models.GroupsWithChild:
     properties:
@@ -276,178 +212,123 @@ definitions:
         items:
           $ref: '#/definitions/models.Groups'
         type: array
-        x-order: "2"
       createdAt:
         type: string
-        x-order: "16"
       deletedAt:
         type: string
-        x-order: "18"
       descriptionEn:
         type: string
-        x-order: "7"
       descriptionRu:
         type: string
-        x-order: "6"
       descriptionUz:
         type: string
-        x-order: "5"
       enabled:
         type: boolean
-        x-order: "15"
       id:
         type: string
-        x-order: "1"
       image:
         type: string
-        x-order: "10"
       nameEn:
         type: string
-        x-order: "4"
       nameRu:
         type: string
-        x-order: "3"
       nameUz:
         type: string
-        x-order: "3"
       parentGroup:
         type: string
-        x-order: "9"
       position:
         type: integer
-        x-order: "8"
       seoDescription:
         type: string
-        x-order: "11"
       seoKeywords:
         type: string
-        x-order: "12"
       seoText:
         type: string
-        x-order: "13"
       seoTitle:
         type: string
-        x-order: "14"
       updatedAt:
         type: string
-        x-order: "17"
       url:
         type: string
-        x-order: "2"
     type: object
   models.Orders:
     properties:
-      accountID:
+      accountId:
         type: integer
-        x-order: "3"
       apartment:
         type: string
-        x-order: "11"
-      chatID:
+      chatId:
         type: integer
-        x-order: "3"
       city:
         type: string
-        x-order: "7"
       comment:
         type: string
-        x-order: "12"
       createdAt:
         type: string
-        x-order: "17"
       customerName:
         type: string
-        x-order: "5"
       customerPhone:
         type: string
-        x-order: "6"
       deletedAt:
         type: string
-        x-order: "19"
       deliveryPrice:
         type: number
-        x-order: "14"
       district:
         type: string
-        x-order: "8"
       fullSum:
         type: number
-        x-order: "15"
       home:
         type: string
-        x-order: "10"
       id:
         type: integer
-        x-order: "1"
       paymentType:
         type: string
-        x-order: "13"
-      regionID:
+      regionId:
         type: integer
-        x-order: "4"
       status:
         type: integer
-        x-order: "16"
       street:
         type: string
-        x-order: "9"
       system:
         type: string
-        x-order: "2"
       updatedAt:
         type: string
-        x-order: "18"
     type: object
   models.ProductImages:
     properties:
       createdAt:
         type: string
-        x-order: "5"
       deletedAt:
         type: string
-        x-order: "7"
       id:
         type: integer
-        x-order: "1"
       image:
         type: string
-        x-order: "3"
       position:
         type: integer
-        x-order: "4"
       productId:
         type: string
-        x-order: "2"
       updatedAt:
         type: string
-        x-order: "6"
     type: object
   models.ProductRates:
     properties:
       accountFirstname:
         type: string
-        x-order: "5"
       accountId:
         type: integer
-        x-order: "4"
       createdAt:
         type: string
-        x-order: "8"
       description:
         type: string
-        x-order: "7"
       id:
         type: integer
-        x-order: "1"
       orderId:
         type: integer
-        x-order: "2"
       productId:
         type: string
-        x-order: "3"
       rate:
         type: integer
-        x-order: "6"
     type: object
   models.ProductWithImages:
     properties:
@@ -558,14 +439,11 @@ definitions:
     properties:
       password:
         type: string
-        x-order: "7"
       phoneNumber:
         example: "998901234323"
         type: string
-        x-order: "6"
       verificationCode:
         type: string
-        x-order: "9"
     required:
     - password
     - phoneNumber
@@ -575,61 +453,45 @@ definitions:
       created_at:
         example: "2022-01-15T11:27:04+05:00"
         type: string
-        x-order: "5"
       deleted_at:
         example: "2022-01-15T11:27:04+05:00"
         type: string
-        x-order: "7"
       id:
         type: integer
-        x-order: "1"
       key:
         type: string
-        x-order: "3"
       title:
         type: string
-        x-order: "2"
       updated_at:
         example: "2022-01-15T11:27:04+05:00"
         type: string
-        x-order: "6"
       value:
         type: string
-        x-order: "4"
     type: object
   models.UpdateAccountInput:
     properties:
       birthday:
         example: "2006-11-22"
         type: string
-        x-order: "6"
       blocked:
         type: integer
-        x-order: "9"
       chatId:
         type: integer
-        x-order: "3"
       firstName:
         minLength: 2
         type: string
-        x-order: "4"
       language:
         example: uz
         maxLength: 2
         type: string
-        x-order: "8"
       lastName:
         type: string
-        x-order: "5"
       password:
         type: string
-        x-order: "7"
       regionId:
         type: integer
-        x-order: "2"
       system:
         type: string
-        x-order: "3"
     required:
     - firstName
     type: object
@@ -637,52 +499,36 @@ definitions:
     properties:
       accountID:
         type: integer
-        x-order: "2"
       apartment:
         type: string
-        x-order: "11"
       chatID:
         type: integer
-        x-order: "3"
       city:
         type: string
-        x-order: "7"
       comment:
         type: string
-        x-order: "12"
       customerName:
         type: string
-        x-order: "5"
       customerPhone:
         type: string
-        x-order: "6"
       deliveryPrice:
         type: number
-        x-order: "14"
       district:
         type: string
-        x-order: "8"
       fullSum:
         type: number
-        x-order: "15"
       home:
         type: string
-        x-order: "10"
       paymentType:
         type: string
-        x-order: "13"
       regionID:
         type: integer
-        x-order: "4"
       status:
         type: integer
-        x-order: "16"
       street:
         type: string
-        x-order: "9"
       system:
         type: string
-        x-order: "1"
     type: object
   models.UpdateProductInput:
     properties:
@@ -723,51 +569,33 @@ definitions:
     type: object
   models.UpdateSettingInput:
     properties:
-      created_at:
-        type: string
-        x-order: "5"
-      deleted_at:
-        type: string
-        x-order: "7"
-      id:
-        type: integer
-        x-order: "1"
       key:
         type: string
-        x-order: "3"
       title:
         type: string
-        x-order: "2"
-      updated_at:
-        type: string
-        x-order: "6"
       value:
         type: string
-        x-order: "4"
+    required:
+    - key
+    - title
+    - value
     type: object
   models.Users:
     properties:
       createdAt:
         type: string
-        x-order: "6"
       deletedAt:
         type: string
-        x-order: "8"
       email:
         type: string
-        x-order: "4"
       id:
         type: integer
-        x-order: "1"
       lastVisit:
         type: string
-        x-order: "5"
       updatedAt:
         type: string
-        x-order: "7"
       username:
         type: string
-        x-order: "2"
     type: object
   v1.Response:
     properties:
@@ -947,16 +775,14 @@ paths:
       - multipart/form-data
       description: This API to login account.
       parameters:
+      - in: formData
+        name: password
+        type: string
       - example: "998901234323"
         in: formData
         name: phoneNumber
         required: true
         type: string
-        x-order: "1"
-      - in: formData
-        name: password
-        type: string
-        x-order: "2"
       produces:
       - application/json
       responses:
@@ -1017,63 +843,49 @@ paths:
       description: This API to create a group.
       parameters:
       - in: formData
-        name: url
+        name: descriptionEn
         type: string
-        x-order: "1"
       - in: formData
-        name: seoDescription
+        name: descriptionRu
         type: string
-        x-order: "10"
-      - in: formData
-        name: seoKeywords
-        type: string
-        x-order: "11"
-      - in: formData
-        name: seoText
-        type: string
-        x-order: "12"
-      - in: formData
-        name: seoTitle
-        type: string
-        x-order: "13"
-      - in: formData
-        name: enabled
-        type: boolean
-        x-order: "14"
-      - in: formData
-        name: nameUz
-        required: true
-        type: string
-        x-order: "2"
-      - in: formData
-        name: nameRu
-        type: string
-        x-order: "3"
-      - in: formData
-        name: nameEn
-        type: string
-        x-order: "3"
       - in: formData
         name: descriptionUz
         required: true
         type: string
-        x-order: "4"
       - in: formData
-        name: descriptionRu
+        name: enabled
+        type: boolean
+      - in: formData
+        name: nameEn
         type: string
-        x-order: "5"
       - in: formData
-        name: descriptionEn
+        name: nameRu
         type: string
-        x-order: "6"
       - in: formData
-        name: position
-        type: integer
-        x-order: "7"
+        name: nameUz
+        required: true
+        type: string
       - in: formData
         name: parentGroup
         type: string
-        x-order: "8"
+      - in: formData
+        name: position
+        type: integer
+      - in: formData
+        name: seoDescription
+        type: string
+      - in: formData
+        name: seoKeywords
+        type: string
+      - in: formData
+        name: seoText
+        type: string
+      - in: formData
+        name: seoTitle
+        type: string
+      - in: formData
+        name: url
+        type: string
       - description: fileImage
         in: formData
         name: fileImage
@@ -1109,23 +921,18 @@ paths:
       - in: query
         name: all
         type: boolean
-        x-order: "1"
-      - in: query
-        name: parentId
-        type: string
-        x-order: "2"
-      - in: query
-        name: nameUz
-        type: string
-        x-order: "3"
-      - in: query
-        name: url
-        type: string
-        x-order: "3"
       - in: query
         name: enabled
         type: boolean
-        x-order: "4"
+      - in: query
+        name: nameUz
+        type: string
+      - in: query
+        name: parentId
+        type: string
+      - in: query
+        name: url
+        type: string
       produces:
       - application/json
       responses:
@@ -1239,63 +1046,49 @@ paths:
         required: true
         type: string
       - in: formData
-        name: seoDescription
+        name: descriptionEn
         type: string
-        x-order: "11"
       - in: formData
-        name: seoKeywords
+        name: descriptionRu
         type: string
-        x-order: "12"
-      - in: formData
-        name: seoText
-        type: string
-        x-order: "13"
-      - in: formData
-        name: seoTitle
-        type: string
-        x-order: "14"
-      - in: formData
-        name: enabled
-        type: boolean
-        x-order: "15"
-      - in: formData
-        name: url
-        type: string
-        x-order: "2"
-      - in: formData
-        name: nameUz
-        required: true
-        type: string
-        x-order: "3"
-      - in: formData
-        name: nameRu
-        type: string
-        x-order: "3"
-      - in: formData
-        name: nameEn
-        type: string
-        x-order: "4"
       - in: formData
         name: descriptionUz
         required: true
         type: string
-        x-order: "5"
       - in: formData
-        name: descriptionRu
+        name: enabled
+        type: boolean
+      - in: formData
+        name: nameEn
         type: string
-        x-order: "6"
       - in: formData
-        name: descriptionEn
+        name: nameRu
         type: string
-        x-order: "7"
       - in: formData
-        name: position
-        type: integer
-        x-order: "8"
+        name: nameUz
+        required: true
+        type: string
       - in: formData
         name: parentGroup
         type: string
-        x-order: "9"
+      - in: formData
+        name: position
+        type: integer
+      - in: formData
+        name: seoDescription
+        type: string
+      - in: formData
+        name: seoKeywords
+        type: string
+      - in: formData
+        name: seoText
+        type: string
+      - in: formData
+        name: seoTitle
+        type: string
+      - in: formData
+        name: url
+        type: string
       - description: file_image
         in: formData
         name: file_image
@@ -1478,14 +1271,12 @@ paths:
       description: This API to create a productImage.
       parameters:
       - in: formData
+        name: position
+        type: integer
+      - in: formData
         name: productId
         required: true
         type: string
-        x-order: "1"
-      - in: formData
-        name: position
-        type: integer
-        x-order: "2"
       - description: fileImage
         in: formData
         name: fileImage
@@ -1580,14 +1371,12 @@ paths:
         required: true
         type: integer
       - in: formData
+        name: position
+        type: integer
+      - in: formData
         name: productId
         required: true
         type: string
-        x-order: "1"
-      - in: formData
-        name: position
-        type: integer
-        x-order: "2"
       - description: file_image
         in: formData
         name: file_image
@@ -2113,15 +1902,13 @@ paths:
       description: This API to login user.
       parameters:
       - in: formData
-        name: username
-        required: true
-        type: string
-        x-order: "1"
-      - in: formData
         name: password
         required: true
         type: string
-        x-order: "2"
+      - in: formData
+        name: username
+        required: true
+        type: string
       produces:
       - application/json
       responses:

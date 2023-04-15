@@ -16,11 +16,23 @@ func NewSettingsRepo(db *gorm.DB) *SettingsRepo {
 	}
 }
 
+func (s *SettingsRepo) Create(ctx context.Context, setting *models.Settings) error {
+
+	err := s.db.WithContext(ctx).Create(setting).Error
+
+	return err
+}
+
+func (s *SettingsRepo) Update(ctx context.Context, setting *models.Settings) error {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (s *SettingsRepo) GetByID(ctx context.Context, ID uint32) (models.Settings, error) {
 	var setting models.Settings
 
 	err := s.db.WithContext(ctx).Where("deleted_at IS NULL").First(&setting, "ID = ?", ID).Error
-	
+
 	return setting, err
 }
 

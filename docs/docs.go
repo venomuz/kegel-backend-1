@@ -171,17 +171,15 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "example": "998901234323",
-                        "x-order": "1",
-                        "name": "phoneNumber",
-                        "in": "formData",
-                        "required": true
+                        "name": "password",
+                        "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "2",
-                        "name": "password",
-                        "in": "formData"
+                        "example": "998901234323",
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -378,88 +376,74 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "x-order": "1",
-                        "name": "url",
+                        "name": "descriptionEn",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "10",
-                        "name": "seoDescription",
+                        "name": "descriptionRu",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "11",
-                        "name": "seoKeywords",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "12",
-                        "name": "seoText",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "13",
-                        "name": "seoTitle",
-                        "in": "formData"
+                        "name": "descriptionUz",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "boolean",
-                        "x-order": "14",
                         "name": "enabled",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "2",
+                        "name": "nameEn",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "nameRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
                         "name": "nameUz",
                         "in": "formData",
                         "required": true
                     },
                     {
                         "type": "string",
-                        "x-order": "3",
-                        "name": "nameRu",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "3",
-                        "name": "nameEn",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "4",
-                        "name": "descriptionUz",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "5",
-                        "name": "descriptionRu",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "6",
-                        "name": "descriptionEn",
+                        "name": "parentGroup",
                         "in": "formData"
                     },
                     {
                         "type": "integer",
-                        "x-order": "7",
                         "name": "position",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "8",
-                        "name": "parentGroup",
+                        "name": "seoDescription",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoKeywords",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoText",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoTitle",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "url",
                         "in": "formData"
                     },
                     {
@@ -513,32 +497,27 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "boolean",
-                        "x-order": "1",
                         "name": "all",
                         "in": "query"
                     },
                     {
-                        "type": "string",
-                        "x-order": "2",
-                        "name": "parentId",
+                        "type": "boolean",
+                        "name": "enabled",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "x-order": "3",
                         "name": "nameUz",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "x-order": "3",
-                        "name": "url",
+                        "name": "parentId",
                         "in": "query"
                     },
                     {
-                        "type": "boolean",
-                        "x-order": "4",
-                        "name": "enabled",
+                        "type": "string",
+                        "name": "url",
                         "in": "query"
                     }
                 ],
@@ -679,88 +658,74 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "x-order": "11",
-                        "name": "seoDescription",
+                        "name": "descriptionEn",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "12",
-                        "name": "seoKeywords",
+                        "name": "descriptionRu",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "13",
-                        "name": "seoText",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "14",
-                        "name": "seoTitle",
-                        "in": "formData"
+                        "name": "descriptionUz",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "boolean",
-                        "x-order": "15",
                         "name": "enabled",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "2",
-                        "name": "url",
+                        "name": "nameEn",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "3",
+                        "name": "nameRu",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
                         "name": "nameUz",
                         "in": "formData",
                         "required": true
                     },
                     {
                         "type": "string",
-                        "x-order": "3",
-                        "name": "nameRu",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "4",
-                        "name": "nameEn",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "5",
-                        "name": "descriptionUz",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "6",
-                        "name": "descriptionRu",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "x-order": "7",
-                        "name": "descriptionEn",
+                        "name": "parentGroup",
                         "in": "formData"
                     },
                     {
                         "type": "integer",
-                        "x-order": "8",
                         "name": "position",
                         "in": "formData"
                     },
                     {
                         "type": "string",
-                        "x-order": "9",
-                        "name": "parentGroup",
+                        "name": "seoDescription",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoKeywords",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoText",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "seoTitle",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "url",
                         "in": "formData"
                     },
                     {
@@ -1068,17 +1033,15 @@ const docTemplate = `{
                 "summary": "Create a productImage.",
                 "parameters": [
                     {
+                        "type": "integer",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
                         "type": "string",
-                        "x-order": "1",
                         "name": "productId",
                         "in": "formData",
                         "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "x-order": "2",
-                        "name": "position",
-                        "in": "formData"
                     },
                     {
                         "type": "file",
@@ -1188,17 +1151,15 @@ const docTemplate = `{
                         "required": true
                     },
                     {
+                        "type": "integer",
+                        "name": "position",
+                        "in": "formData"
+                    },
+                    {
                         "type": "string",
-                        "x-order": "1",
                         "name": "productId",
                         "in": "formData",
                         "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "x-order": "2",
-                        "name": "position",
-                        "in": "formData"
                     },
                     {
                         "type": "file",
@@ -2028,15 +1989,13 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "x-order": "1",
-                        "name": "username",
+                        "name": "password",
                         "in": "formData",
                         "required": true
                     },
                     {
                         "type": "string",
-                        "x-order": "2",
-                        "name": "password",
+                        "name": "username",
                         "in": "formData",
                         "required": true
                     }
@@ -2133,69 +2092,53 @@ const docTemplate = `{
         "models.Accounts": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "language": {
-                    "type": "string",
-                    "x-order": "10"
-                },
                 "authKey": {
-                    "type": "string",
-                    "x-order": "11"
-                },
-                "blocked": {
-                    "type": "integer",
-                    "x-order": "12"
-                },
-                "createdAt": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "deletedAt": {
-                    "type": "string",
-                    "x-order": "15"
-                },
-                "regionId": {
-                    "type": "integer",
-                    "x-order": "2"
-                },
-                "chatId": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
-                "system": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "firstName": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "lastName": {
-                    "type": "string",
-                    "x-order": "5"
+                    "type": "string"
                 },
                 "birthday": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "string"
                 },
-                "phoneNumber": {
-                    "type": "string",
-                    "x-order": "7"
+                "blocked": {
+                    "type": "integer"
                 },
-                "password": {
-                    "type": "string",
-                    "x-order": "8"
+                "chatId": {
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
                 },
                 "lastVisit": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "regionId": {
+                    "type": "integer"
+                },
+                "system": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
@@ -2206,89 +2149,74 @@ const docTemplate = `{
                 "productId"
             ],
             "properties": {
-                "productId": {
-                    "type": "string",
-                    "x-order": "1"
-                },
                 "amount": {
-                    "type": "number",
-                    "x-order": "2"
+                    "type": "number"
+                },
+                "productId": {
+                    "type": "string"
                 }
             }
         },
         "models.CreateOrderWithProductsInput": {
             "type": "object",
+            "required": [
+                "accountId",
+                "customerPhone"
+            ],
             "properties": {
-                "system": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "home": {
-                    "type": "string",
-                    "x-order": "10"
+                "accountId": {
+                    "type": "integer"
                 },
                 "apartment": {
-                    "type": "string",
-                    "x-order": "11"
+                    "type": "string"
+                },
+                "chatId": {
+                    "type": "integer"
+                },
+                "city": {
+                    "type": "string"
                 },
                 "comment": {
-                    "type": "string",
-                    "x-order": "12"
+                    "type": "string"
                 },
-                "paymentType": {
-                    "type": "string",
-                    "x-order": "13"
+                "customerName": {
+                    "type": "string"
+                },
+                "customerPhone": {
+                    "type": "string"
                 },
                 "deliveryPrice": {
-                    "type": "number",
-                    "x-order": "14"
+                    "type": "number"
+                },
+                "district": {
+                    "type": "string"
                 },
                 "fullSum": {
-                    "type": "number",
-                    "x-order": "15"
+                    "type": "number"
                 },
-                "status": {
-                    "type": "integer",
-                    "x-order": "16"
+                "home": {
+                    "type": "string"
                 },
                 "orderProducts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.CreateOrderProductsInput"
-                    },
-                    "x-order": "17"
+                    }
                 },
-                "accountID": {
-                    "type": "integer",
-                    "x-order": "2"
+                "paymentType": {
+                    "type": "string"
                 },
-                "chatID": {
-                    "type": "integer",
-                    "x-order": "3"
+                "regionId": {
+                    "type": "integer"
                 },
-                "regionID": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
-                "customerName": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "customerPhone": {
-                    "type": "string",
-                    "x-order": "6"
-                },
-                "city": {
-                    "type": "string",
-                    "x-order": "7"
-                },
-                "district": {
-                    "type": "string",
-                    "x-order": "8"
+                "status": {
+                    "type": "integer"
                 },
                 "street": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
                 }
             }
         },
@@ -2350,55 +2278,40 @@ const docTemplate = `{
         "models.CreateProductRateInput": {
             "type": "object",
             "properties": {
-                "orderId": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "productId": {
-                    "type": "string",
-                    "x-order": "2"
+                "description": {
+                    "type": "string"
                 },
                 "noname": {
-                    "description": "AccountFirstname string ` + "`" + `json:\"-\" extensions:\"x-order=4\"` + "`" + `",
-                    "type": "boolean",
-                    "x-order": "4"
+                    "description": "AccountFirstname string ` + "`" + `json:\"-\"` + "`" + `",
+                    "type": "boolean"
+                },
+                "orderId": {
+                    "type": "integer"
+                },
+                "productId": {
+                    "type": "string"
                 },
                 "rate": {
-                    "type": "integer",
-                    "x-order": "5"
-                },
-                "description": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "integer"
                 }
             }
         },
         "models.CreateSettingInput": {
             "type": "object",
+            "required": [
+                "key",
+                "title",
+                "value"
+            ],
             "properties": {
-                "title": {
-                    "type": "string",
-                    "x-order": "1"
-                },
                 "key": {
-                    "type": "string",
-                    "x-order": "2"
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
                 },
                 "value": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "created_at": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "deleted_at": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "string"
                 }
             }
         },
@@ -2416,324 +2329,250 @@ const docTemplate = `{
         "models.Groups": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "image": {
-                    "type": "string",
-                    "x-order": "10"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "11"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "15"
-                },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "16"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "17"
+                    "type": "string"
                 },
                 "deletedAt": {
-                    "type": "string",
-                    "x-order": "18"
-                },
-                "url": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameEn": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "descriptionRu": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "string"
                 },
                 "descriptionEn": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 },
-                "position": {
-                    "type": "integer",
-                    "x-order": "8"
+                "descriptionRu": {
+                    "type": "string"
+                },
+                "descriptionUz": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameRu": {
+                    "type": "string"
+                },
+                "nameUz": {
+                    "type": "string"
                 },
                 "parentGroup": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },
         "models.GroupsWithChild": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "image": {
-                    "type": "string",
-                    "x-order": "10"
-                },
-                "seoDescription": {
-                    "type": "string",
-                    "x-order": "11"
-                },
-                "seoKeywords": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "seoText": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "seoTitle": {
-                    "type": "string",
-                    "x-order": "14"
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "x-order": "15"
-                },
-                "createdAt": {
-                    "type": "string",
-                    "x-order": "16"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "17"
-                },
-                "deletedAt": {
-                    "type": "string",
-                    "x-order": "18"
-                },
                 "child": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.Groups"
-                    },
-                    "x-order": "2"
+                    }
                 },
-                "url": {
-                    "type": "string",
-                    "x-order": "2"
+                "createdAt": {
+                    "type": "string"
                 },
-                "nameRu": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameUz": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "nameEn": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "descriptionUz": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "descriptionRu": {
-                    "type": "string",
-                    "x-order": "6"
+                "deletedAt": {
+                    "type": "string"
                 },
                 "descriptionEn": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 },
-                "position": {
-                    "type": "integer",
-                    "x-order": "8"
+                "descriptionRu": {
+                    "type": "string"
+                },
+                "descriptionUz": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameRu": {
+                    "type": "string"
+                },
+                "nameUz": {
+                    "type": "string"
                 },
                 "parentGroup": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "seoDescription": {
+                    "type": "string"
+                },
+                "seoKeywords": {
+                    "type": "string"
+                },
+                "seoText": {
+                    "type": "string"
+                },
+                "seoTitle": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         },
         "models.Orders": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "home": {
-                    "type": "string",
-                    "x-order": "10"
+                "accountId": {
+                    "type": "integer"
                 },
                 "apartment": {
-                    "type": "string",
-                    "x-order": "11"
+                    "type": "string"
                 },
-                "comment": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "paymentType": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "deliveryPrice": {
-                    "type": "number",
-                    "x-order": "14"
-                },
-                "fullSum": {
-                    "type": "number",
-                    "x-order": "15"
-                },
-                "status": {
-                    "type": "integer",
-                    "x-order": "16"
-                },
-                "createdAt": {
-                    "type": "string",
-                    "x-order": "17"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "18"
-                },
-                "deletedAt": {
-                    "type": "string",
-                    "x-order": "19"
-                },
-                "system": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "accountID": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
-                "chatID": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
-                "regionID": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
-                "customerName": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "customerPhone": {
-                    "type": "string",
-                    "x-order": "6"
+                "chatId": {
+                    "type": "integer"
                 },
                 "city": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "customerName": {
+                    "type": "string"
+                },
+                "customerPhone": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "type": "string"
+                },
+                "deliveryPrice": {
+                    "type": "number"
                 },
                 "district": {
-                    "type": "string",
-                    "x-order": "8"
+                    "type": "string"
+                },
+                "fullSum": {
+                    "type": "number"
+                },
+                "home": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "paymentType": {
+                    "type": "string"
+                },
+                "regionId": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
                 },
                 "street": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
         "models.ProductImages": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "productId": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "image": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "position": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "string"
                 },
                 "deletedAt": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
         "models.ProductRates": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "orderId": {
-                    "type": "integer",
-                    "x-order": "2"
-                },
-                "productId": {
-                    "type": "string",
-                    "x-order": "3"
+                "accountFirstname": {
+                    "type": "string"
                 },
                 "accountId": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
-                "accountFirstname": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "rate": {
-                    "type": "integer",
-                    "x-order": "6"
-                },
-                "description": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "integer"
                 },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "8"
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "orderId": {
+                    "type": "integer"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "rate": {
+                    "type": "integer"
                 }
             }
         },
@@ -2903,54 +2742,44 @@ const docTemplate = `{
                 "phoneNumber"
             ],
             "properties": {
+                "password": {
+                    "type": "string"
+                },
                 "phoneNumber": {
                     "type": "string",
-                    "x-order": "6",
                     "example": "998901234323"
                 },
-                "password": {
-                    "type": "string",
-                    "x-order": "7"
-                },
                 "verificationCode": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
                 }
             }
         },
         "models.Settings": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "title": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "key": {
-                    "type": "string",
-                    "x-order": "3"
-                },
-                "value": {
-                    "type": "string",
-                    "x-order": "4"
-                },
                 "created_at": {
                     "type": "string",
-                    "x-order": "5",
-                    "example": "2022-01-15T11:27:04+05:00"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "x-order": "6",
                     "example": "2022-01-15T11:27:04+05:00"
                 },
                 "deleted_at": {
                     "type": "string",
-                    "x-order": "7",
                     "example": "2022-01-15T11:27:04+05:00"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "example": "2022-01-15T11:27:04+05:00"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
@@ -2960,114 +2789,89 @@ const docTemplate = `{
                 "firstName"
             ],
             "properties": {
-                "regionId": {
-                    "type": "integer",
-                    "x-order": "2"
-                },
-                "system": {
+                "birthday": {
                     "type": "string",
-                    "x-order": "3"
+                    "example": "2006-11-22"
+                },
+                "blocked": {
+                    "type": "integer"
                 },
                 "chatId": {
-                    "type": "integer",
-                    "x-order": "3"
+                    "type": "integer"
                 },
                 "firstName": {
                     "type": "string",
-                    "minLength": 2,
-                    "x-order": "4"
-                },
-                "lastName": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "birthday": {
-                    "type": "string",
-                    "x-order": "6",
-                    "example": "2006-11-22"
-                },
-                "password": {
-                    "type": "string",
-                    "x-order": "7"
+                    "minLength": 2
                 },
                 "language": {
                     "type": "string",
                     "maxLength": 2,
-                    "x-order": "8",
                     "example": "uz"
                 },
-                "blocked": {
-                    "type": "integer",
-                    "x-order": "9"
+                "lastName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "regionId": {
+                    "type": "integer"
+                },
+                "system": {
+                    "type": "string"
                 }
             }
         },
         "models.UpdateOrderInput": {
             "type": "object",
             "properties": {
-                "system": {
-                    "type": "string",
-                    "x-order": "1"
-                },
-                "home": {
-                    "type": "string",
-                    "x-order": "10"
+                "accountID": {
+                    "type": "integer"
                 },
                 "apartment": {
-                    "type": "string",
-                    "x-order": "11"
-                },
-                "comment": {
-                    "type": "string",
-                    "x-order": "12"
-                },
-                "paymentType": {
-                    "type": "string",
-                    "x-order": "13"
-                },
-                "deliveryPrice": {
-                    "type": "number",
-                    "x-order": "14"
-                },
-                "fullSum": {
-                    "type": "number",
-                    "x-order": "15"
-                },
-                "status": {
-                    "type": "integer",
-                    "x-order": "16"
-                },
-                "accountID": {
-                    "type": "integer",
-                    "x-order": "2"
+                    "type": "string"
                 },
                 "chatID": {
-                    "type": "integer",
-                    "x-order": "3"
-                },
-                "regionID": {
-                    "type": "integer",
-                    "x-order": "4"
-                },
-                "customerName": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "customerPhone": {
-                    "type": "string",
-                    "x-order": "6"
+                    "type": "integer"
                 },
                 "city": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "customerName": {
+                    "type": "string"
+                },
+                "customerPhone": {
+                    "type": "string"
+                },
+                "deliveryPrice": {
+                    "type": "number"
                 },
                 "district": {
-                    "type": "string",
-                    "x-order": "8"
+                    "type": "string"
+                },
+                "fullSum": {
+                    "type": "number"
+                },
+                "home": {
+                    "type": "string"
+                },
+                "paymentType": {
+                    "type": "string"
+                },
+                "regionID": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
                 },
                 "street": {
-                    "type": "string",
-                    "x-order": "9"
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
                 }
             }
         },
@@ -3128,67 +2932,46 @@ const docTemplate = `{
         },
         "models.UpdateSettingInput": {
             "type": "object",
+            "required": [
+                "key",
+                "title",
+                "value"
+            ],
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
+                "key": {
+                    "type": "string"
                 },
                 "title": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "key": {
-                    "type": "string",
-                    "x-order": "3"
+                    "type": "string"
                 },
                 "value": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "created_at": {
-                    "type": "string",
-                    "x-order": "5"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "x-order": "6"
-                },
-                "deleted_at": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 }
             }
         },
         "models.Users": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "x-order": "1"
-                },
-                "username": {
-                    "type": "string",
-                    "x-order": "2"
-                },
-                "email": {
-                    "type": "string",
-                    "x-order": "4"
-                },
-                "lastVisit": {
-                    "type": "string",
-                    "x-order": "5"
-                },
                 "createdAt": {
-                    "type": "string",
-                    "x-order": "6"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "x-order": "7"
+                    "type": "string"
                 },
                 "deletedAt": {
-                    "type": "string",
-                    "x-order": "8"
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "lastVisit": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
                 }
             }
         },

@@ -144,7 +144,6 @@ func (g *GroupsService) GetAllByFilterWithChild(ctx context.Context, input model
 
 			groupsWithChild = append(groupsWithChild, groupWithChild)
 		}
-
 		return groupsWithChild, err
 	}
 
@@ -203,6 +202,10 @@ func (g *GroupsService) DeleteByID(ctx context.Context, ID string) error {
 			return err
 		}
 
+	}
+
+	if group.ParentGroup == "0" {
+		err = g.groupsRepo.DeleteChildByParentID(ctx, ID)
 	}
 
 	return g.groupsRepo.DeleteByID(ctx, ID)

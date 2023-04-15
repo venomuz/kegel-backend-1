@@ -70,7 +70,7 @@ func (g *GroupsRepo) Update(ctx context.Context, group *models.Groups) error {
 func (g *GroupsRepo) GetAll(ctx context.Context) ([]models.Groups, error) {
 	var groups []models.Groups
 
-	err := g.db.WithContext(ctx).Order("-position DESC").Find(&groups, "deleted_at IS NULL").Error
+	err := g.db.WithContext(ctx).Debug().Order("-position DESC").Find(&groups, "deleted_at IS NULL").Error
 
 	return groups, err
 }
@@ -140,5 +140,10 @@ func (g *GroupsRepo) GetCountNameUz(ctx context.Context, nameUz string, ID ...st
 
 func (g *GroupsRepo) DeleteByID(ctx context.Context, ID string) error {
 	err := g.db.WithContext(ctx).Updates(&models.Groups{ID: ID, DeletedAt: time.Now().Format("2006-01-02 15:04:05")}).Error
+	return err
+}
+
+func (g *GroupsRepo) DeleteChildByParentID(ctx context.Context, ID string) error {
+	err := g.db.WithContext(ctx).Model(&models.Groups{}).Where("parent_group = ?", ID).Updates(&models.Groups{DeletedAt: time.Now().Format("2006-01-02 15:04:05")}).Error
 	return err
 }

@@ -110,7 +110,7 @@ type Deps struct {
 	Log          logger.Logger
 	Cfg          config.Config
 	HumanizerUrl humanizer.Url
-	Hasher       hash.Password
+	Hasher       hash.PasswordHasher
 	Generator    gen.Generator
 }
 

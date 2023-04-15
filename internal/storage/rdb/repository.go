@@ -34,6 +34,7 @@ func (r *RedisRepo) Set(ctx context.Context, key, value string) error {
 func (r *RedisRepo) Get(ctx context.Context, key string) (string, error) {
 
 	val, err := r.rds.Get(ctx, key).Result()
+
 	return val, err
 }
 

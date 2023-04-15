@@ -14,10 +14,10 @@ type AccountsService struct {
 	accountsRepo mysql.Accounts
 	rdbRepos     rdb.Repository
 	smsService   Sms
-	hash         hash.Password
+	hash         hash.PasswordHasher
 }
 
-func NewAccountsService(accountsRepo mysql.Accounts, rdbRepos rdb.Repository, smsService Sms, hash hash.Password) *AccountsService {
+func NewAccountsService(accountsRepo mysql.Accounts, rdbRepos rdb.Repository, smsService Sms, hash hash.PasswordHasher) *AccountsService {
 	return &AccountsService{
 		accountsRepo: accountsRepo,
 		rdbRepos:     rdbRepos,

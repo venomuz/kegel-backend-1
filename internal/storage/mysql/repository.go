@@ -22,8 +22,9 @@ type Groups interface {
 	GetAllByFilter(ctx context.Context, input models.GetGroupsByFilterInput) ([]models.Groups, error)
 	GetByID(ctx context.Context, ID string) (models.Groups, error)
 	GetByUrl(ctx context.Context, url string) (models.Groups, error)
-	GetCountNameUz(ctx context.Context, nameUz string, id ...string) (int64, error)
+	GetCountNameUz(ctx context.Context, nameUz string, ID ...string) (int64, error)
 	DeleteByID(ctx context.Context, ID string) error
+	DeleteChildByParentID(ctx context.Context, ID string) error
 }
 
 type OrderProducts interface {
@@ -77,6 +78,8 @@ type Products interface {
 }
 
 type Settings interface {
+	Create(ctx context.Context, setting *models.Settings) error
+	Update(ctx context.Context, setting *models.Settings) error
 	GetByID(ctx context.Context, ID uint32) (models.Settings, error)
 	GetAll(ctx context.Context) ([]models.Settings, error)
 	GetByKey(ctx context.Context, key string) (models.Settings, error)

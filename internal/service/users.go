@@ -9,10 +9,10 @@ import (
 
 type UsersService struct {
 	usersRepo    mysql.Users
-	hashPassword hash.Password
+	hashPassword hash.PasswordHasher
 }
 
-func NewUsersService(usersRepo mysql.Users, hashPassword hash.Password) *UsersService {
+func NewUsersService(usersRepo mysql.Users, hashPassword hash.PasswordHasher) *UsersService {
 	return &UsersService{
 		usersRepo:    usersRepo,
 		hashPassword: hashPassword,
