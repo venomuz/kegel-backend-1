@@ -42,6 +42,32 @@ definitions:
       updatedAt:
         type: string
     type: object
+  models.Banners:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      name:
+        type: string
+      position:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.CreateBannerInput:
+    properties:
+      name:
+        type: string
+      position:
+        type: integer
+    required:
+    - name
+    type: object
   models.CreateOrderProductsInput:
     properties:
       amount:
@@ -495,6 +521,15 @@ definitions:
     required:
     - firstName
     type: object
+  models.UpdateBannerInput:
+    properties:
+      name:
+        type: string
+      position:
+        type: integer
+    required:
+    - name
+    type: object
   models.UpdateOrderInput:
     properties:
       accountID:
@@ -836,6 +871,163 @@ paths:
       summary: Logout account
       tags:
       - Accounts
+  /v1/banners:
+    get:
+      consumes:
+      - application/json
+      description: This api for get Banners
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Banners'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get all Banners
+      tags:
+      - Banners
+    post:
+      consumes:
+      - application/json
+      description: This API to create a banner.
+      parameters:
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBannerInput'
+      - description: fileImage
+        in: formData
+        name: fileImage
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Banners'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Create a banner.
+      tags:
+      - Banners
+  /v1/banners/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API to delete a banner.
+      parameters:
+      - description: id for delete Banner
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Delete a banner.
+      tags:
+      - Banners
+    get:
+      consumes:
+      - application/json
+      description: This API to get banner by id.
+      parameters:
+      - description: id for get Banner
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Banners'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Get banner by id.
+      tags:
+      - Banners
+    put:
+      consumes:
+      - application/json
+      description: This API to update a banner.
+      parameters:
+      - description: id for update Banner
+        format: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: fileImage
+        in: formData
+        name: fileImage
+        type: file
+      - description: data body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateBannerInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Banners'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/v1.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.Response'
+      summary: Update a banner.
+      tags:
+      - Banners
   /v1/groups:
     post:
       consumes:
@@ -928,7 +1120,7 @@ paths:
         name: nameUz
         type: string
       - in: query
-        name: parentId
+        name: parentID
         type: string
       - in: query
         name: url

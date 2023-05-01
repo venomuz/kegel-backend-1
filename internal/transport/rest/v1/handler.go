@@ -28,6 +28,7 @@ func NewHandler(services *service.Services, rdbRepos rdb.Repository, log logger.
 func (h *Handler) Init(v1 *gin.RouterGroup) {
 	{
 		h.initAccountsRoutes(v1)
+		h.initBannersRoutes(v1)
 		h.initGroupsRoutes(v1)
 		h.initOrdersRoutes(v1)
 		h.initProductImagesRoutes(v1)

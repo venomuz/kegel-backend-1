@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/venomuz/kegel-backend/internal/models"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 )
 
 type SettingsRepo struct {
@@ -24,8 +25,16 @@ func (s *SettingsRepo) Create(ctx context.Context, setting *models.Settings) err
 }
 
 func (s *SettingsRepo) Update(ctx context.Context, setting *models.Settings) error {
-	//TODO implement me
-	panic("implement me")
+	columns := map[string]interface{}{
+		"title":      setting.Title,
+		"key":        setting.Key,
+		"value":      setting.Value,
+		"updated_at": setting.UpdatedAt,
+	}
+
+	err := s.db.Clauses(clause.Returning{}).WithContext(ctx).Model(setting).Updates(columns).Error
+
+	return err
 }
 
 func (s *SettingsRepo) GetByID(ctx context.Context, ID uint32) (models.Settings, error) {
@@ -50,4 +59,11 @@ func (s *SettingsRepo) GetByKey(ctx context.Context, key string) (models.Setting
 	err := s.db.WithContext(ctx).Where("deleted_at IS NULL AND `key` = ?", key).First(&setting).Error
 
 	return setting, err
+}
+
+func (s *SettingsRepo) DeleteByID(ctx context.Context, ID uint32) error {
+
+	err := s.db.WithContext(ctx).Delete(models.Settings{}, "id = ?", ID).Error
+
+	return err
 }

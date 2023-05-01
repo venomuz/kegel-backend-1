@@ -103,7 +103,7 @@ func (s *SmsService) SendVerificationCode(ctx context.Context, phone string) (st
 
 func (s *SmsService) eskizAuth(ctx context.Context) (models.EskizToken, error) {
 
-	setting, err := s.settingsRepo.GetByKey(ctx, "venom.uzz@mail.ru")
+	setting, err := s.settingsRepo.GetByKey(ctx, "eskiz-key")
 	if err != nil {
 		s.log.Error("error while get setting eskiz password", logger.Error(err))
 		return models.EskizToken{}, err

@@ -15,6 +15,15 @@ type Accounts interface {
 	DeleteByID(ctx context.Context, ID uint32) error
 }
 
+type Banners interface {
+	Create(ctx context.Context, banner *models.Banners) error
+	Update(ctx context.Context, banner *models.Banners) error
+	GetByID(ctx context.Context, ID uint32) (models.Banners, error)
+	GetAll(ctx context.Context) ([]models.Banners, error)
+	GetByKey(ctx context.Context, key string) (models.Banners, error)
+	DeleteByID(ctx context.Context, ID uint32) error
+}
+
 type Groups interface {
 	Create(ctx context.Context, group *models.Groups) error
 	Update(ctx context.Context, group *models.Groups) error
@@ -83,6 +92,7 @@ type Settings interface {
 	GetByID(ctx context.Context, ID uint32) (models.Settings, error)
 	GetAll(ctx context.Context) ([]models.Settings, error)
 	GetByKey(ctx context.Context, key string) (models.Settings, error)
+	DeleteByID(ctx context.Context, ID uint32) error
 }
 
 type Users interface {
@@ -91,6 +101,7 @@ type Users interface {
 
 type Repositories struct {
 	Accounts      Accounts
+	Banners       Banners
 	Groups        Groups
 	OrderProducts OrderProducts
 	Orders        Orders
@@ -104,6 +115,7 @@ type Repositories struct {
 func NewRepositories(db *gorm.DB) *Repositories {
 	return &Repositories{
 		Accounts:      NewAccountsRepo(db),
+		Banners:       NewBannersRepo(db),
 		Groups:        NewGroupsRepo(db),
 		OrderProducts: NewOrderProductsRepo(db),
 		Orders:        NewOrdersRepo(db),

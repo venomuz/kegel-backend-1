@@ -360,6 +360,241 @@ const docTemplate = `{
                 }
             }
         },
+        "/v1/banners": {
+            "get": {
+                "description": "This api for get Banners",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Banners"
+                ],
+                "summary": "Get all Banners",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Banners"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "This API to create a banner.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Banners"
+                ],
+                "summary": "Create a banner.",
+                "parameters": [
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateBannerInput"
+                        }
+                    },
+                    {
+                        "type": "file",
+                        "description": "fileImage",
+                        "name": "fileImage",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Banners"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/banners/{id}": {
+            "get": {
+                "description": "This API to get banner by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Banners"
+                ],
+                "summary": "Get banner by id.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for get Banner",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Banners"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "This API to update a banner.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Banners"
+                ],
+                "summary": "Update a banner.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for update Banner",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "fileImage",
+                        "name": "fileImage",
+                        "in": "formData"
+                    },
+                    {
+                        "description": "data body",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateBannerInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Banners"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "This API to delete a banner.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Banners"
+                ],
+                "summary": "Delete a banner.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "format": "id",
+                        "description": "id for delete Banner",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/groups": {
             "post": {
                 "description": "This API to create a group.",
@@ -512,7 +747,7 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "name": "parentId",
+                        "name": "parentID",
                         "in": "query"
                     },
                     {
@@ -2142,6 +2377,46 @@ const docTemplate = `{
                 }
             }
         },
+        "models.Banners": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CreateBannerInput": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                }
+            }
+        },
         "models.CreateOrderProductsInput": {
             "type": "object",
             "required": [
@@ -2819,6 +3094,20 @@ const docTemplate = `{
                 },
                 "system": {
                     "type": "string"
+                }
+            }
+        },
+        "models.UpdateBannerInput": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
                 }
             }
         },

@@ -15,6 +15,7 @@ var (
 	FilePathGalleries     = "galleries"
 	FilePathSliders       = "sliders"
 	FilePathNotifications = "notifications"
+	FilePathBanners       = "banners"
 	FilePathGroups        = "groups"
 	FilePathProducts      = "products"
 )

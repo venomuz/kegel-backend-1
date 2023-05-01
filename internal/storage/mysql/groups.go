@@ -54,13 +54,15 @@ func (g *GroupsRepo) Update(ctx context.Context, group *models.Groups) error {
 		"description_en":  group.DescriptionEn,
 		"position":        group.Position,
 		"parent_group":    group.ParentGroup,
-		"image":           group.Image,
 		"seo_description": group.SeoDescription,
 		"seo_keywords":    group.SeoKeywords,
 		"seo_text":        group.SeoText,
 		"seo_title":       group.SeoTitle,
 		"enabled":         group.Enabled,
 		"updated_at":      group.UpdatedAt,
+	}
+	if group.Image != "" {
+		columns["image"] = group.Image
 	}
 
 	err := g.db.Clauses(clause.Returning{}).WithContext(ctx).Model(group).Updates(columns).Error
@@ -81,8 +83,8 @@ func (g *GroupsRepo) GetAllByFilter(ctx context.Context, input models.GetGroupsB
 		query  = g.db.WithContext(ctx).Model(models.Groups{})
 	)
 
-	if input.ParentId != "" {
-		query = query.Where("parent_group = ?", input.ParentId)
+	if input.ParentID != "" {
+		query = query.Where("parent_group = ?", input.ParentID)
 	}
 
 	if input.NameUz != "" {

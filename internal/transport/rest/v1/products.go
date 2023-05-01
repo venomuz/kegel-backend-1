@@ -58,7 +58,7 @@ func (h *Handler) ProductCreate(c *gin.Context) {
 //	@Tags			Products
 //	@Accept			json
 //	@Produce		json
-//	@Param			id		path		string							true	"id for update Product"	Format(id)
+//	@Param			id		path		string						true	"id for update Product"	Format(id)
 //	@Param			data	body		models.UpdateProductInput	true	"data body"
 //	@Success		200		{object}	models.Products
 //	@Failure		400,409	{object}	Response

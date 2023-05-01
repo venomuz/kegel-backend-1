@@ -9,6 +9,7 @@ func AutoMigrate(db *gorm.DB) error {
 
 	err := db.AutoMigrate(
 		&models.Accounts{},
+		&models.Banners{},
 		&models.Groups{},
 		&models.OrderProducts{},
 		&models.Orders{},

@@ -94,7 +94,7 @@ func (g *GroupsService) Update(ctx context.Context, input models.UpdateGroupInpu
 		UpdatedAt:     time.Now().Format("2006-01-02 15:04:05"),
 	}
 
-	if input.FileImage != nil {
+	if input.FileImage != nil && input.FileImage.Size != 0 {
 
 		name, err := g.filesService.Save(ctx, models.File{File: input.FileImage, Path: models.FilePathGroups})
 		if err != nil {
@@ -147,8 +147,8 @@ func (g *GroupsService) GetAllByFilterWithChild(ctx context.Context, input model
 		return groupsWithChild, err
 	}
 
-	if input.ParentId == "" {
-		input.ParentId = "0"
+	if input.ParentID == "" {
+		input.ParentID = "0"
 	}
 
 	groupsFilter, err := g.groupsRepo.GetAllByFilter(ctx, input)

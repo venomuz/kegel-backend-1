@@ -55,6 +55,5 @@ func (s *SettingsService) GetByKey(ctx context.Context, key string) (models.Sett
 }
 
 func (s *SettingsService) DeleteByID(ctx context.Context, ID uint32) error {
-	//TODO implement me
-	panic("implement me")
+	return s.settingsRepo.DeleteByID(ctx, ID)
 }

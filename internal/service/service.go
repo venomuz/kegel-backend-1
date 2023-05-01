@@ -23,6 +23,15 @@ type Accounts interface {
 	DeleteByID(ctx context.Context, ID uint32) error
 }
 
+type Banners interface {
+	Create(ctx context.Context, input models.CreateBannerInput) (models.Banners, error)
+	Update(ctx context.Context, input models.UpdateBannerInput) (models.Banners, error)
+	GetByID(ctx context.Context, ID uint32) (models.Banners, error)
+	GetAll(ctx context.Context) ([]models.Banners, error)
+	GetByKey(ctx context.Context, key string) (models.Banners, error)
+	DeleteByID(ctx context.Context, ID uint32) error
+}
+
 type Files interface {
 	Save(ctx context.Context, file models.File) (string, error)
 	DeleteByName(ctx context.Context, path, filename string) error
@@ -116,6 +125,7 @@ type Deps struct {
 
 type Services struct {
 	Accounts      Accounts
+	Banners       Banners
 	Files         Files
 	Groups        Groups
 	OrderProducts OrderProducts
@@ -132,6 +142,7 @@ func NewServices(deps Deps) *Services {
 	smsService := NewSmsService(deps.MysqlRepos.Settings, deps.Generator, deps.Log)
 	accountsService := NewAccountsService(deps.MysqlRepos.Accounts, deps.RdbRepos, smsService, deps.Hasher)
 	filesService := NewFilesService(deps.Cfg)
+	bannersService := NewBannersService(deps.MysqlRepos.Banners, filesService)
 	groupsService := NewGroupsService(deps.MysqlRepos.Groups, filesService, deps.HumanizerUrl)
 	productImagesService := NewProductImagesService(deps.MysqlRepos.ProductImages, filesService, deps.Log)
 	settingsService := NewSettingsService(deps.MysqlRepos.Settings)
@@ -142,6 +153,7 @@ func NewServices(deps Deps) *Services {
 	usersService := NewUsersService(deps.MysqlRepos.Users, deps.Hasher)
 	return &Services{
 		Accounts:      accountsService,
+		Banners:       bannersService,
 		Files:         filesService,
 		Groups:        groupsService,
 		OrderProducts: orderProductsService,

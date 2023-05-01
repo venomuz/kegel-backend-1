@@ -63,7 +63,7 @@ type UpdateGroupInput struct {
 
 type GetGroupsByFilterInput struct {
 	All      bool   `form:"all"`
-	ParentId string `form:"parentId"`
+	ParentID string `form:"parentId"`
 	NameUz   string `form:"nameUz"`
 	Url      string `form:"url"`
 	Enabled  *bool  `form:"enabled"`

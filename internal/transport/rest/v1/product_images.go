@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/venomuz/kegel-backend/internal/models"
 	"github.com/venomuz/kegel-backend/pkg/logger"
@@ -40,8 +39,6 @@ func (h *Handler) ProductImageCreate(c *gin.Context) {
 		h.log.Error("error while bind to json ProductImageCreate", logger.Error(err))
 		return
 	}
-
-	fmt.Println(body)
 
 	productImage, err := h.services.ProductImages.Create(c.Request.Context(), body)
 	if err != nil {
