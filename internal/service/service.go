@@ -143,7 +143,7 @@ func NewServices(deps Deps) *Services {
 	accountsService := NewAccountsService(deps.MysqlRepos.Accounts, deps.RdbRepos, smsService, deps.Hasher)
 	filesService := NewFilesService(deps.Cfg)
 	bannersService := NewBannersService(deps.MysqlRepos.Banners, filesService)
-	groupsService := NewGroupsService(deps.MysqlRepos.Groups, filesService, deps.HumanizerUrl)
+	groupsService := NewGroupsService(deps.MysqlRepos.Groups, filesService, deps.HumanizerUrl, deps.Log)
 	productImagesService := NewProductImagesService(deps.MysqlRepos.ProductImages, filesService, deps.Log)
 	settingsService := NewSettingsService(deps.MysqlRepos.Settings)
 	productRatesService := NewProductRatesService(deps.MysqlRepos.ProductRates, accountsService)

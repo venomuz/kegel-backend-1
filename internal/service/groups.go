@@ -7,6 +7,7 @@ import (
 	"github.com/venomuz/kegel-backend/internal/models"
 	"github.com/venomuz/kegel-backend/internal/storage/mysql"
 	"github.com/venomuz/kegel-backend/pkg/humanizer"
+	"github.com/venomuz/kegel-backend/pkg/logger"
 	"time"
 )
 
@@ -14,13 +15,15 @@ type GroupsService struct {
 	groupsRepo   mysql.Groups
 	filesService Files
 	humanizerUrl humanizer.Url
+	log          logger.Logger
 }
 
-func NewGroupsService(groupsRepo mysql.Groups, filesService Files, humanizerUrl humanizer.Url) *GroupsService {
+func NewGroupsService(groupsRepo mysql.Groups, filesService Files, humanizerUrl humanizer.Url, log logger.Logger) *GroupsService {
 	return &GroupsService{
 		groupsRepo:   groupsRepo,
 		filesService: filesService,
 		humanizerUrl: humanizerUrl,
+		log:          log,
 	}
 }
 
@@ -199,7 +202,7 @@ func (g *GroupsService) DeleteByID(ctx context.Context, ID string) error {
 
 	if group.Image != "" {
 		if err = g.filesService.DeleteByName(ctx, models.FilePathGroups, group.Image); err != nil {
-			return err
+			g.log.Error("error while delete group file image on DeleteByID", logger.Error(err))
 		}
 
 	}
